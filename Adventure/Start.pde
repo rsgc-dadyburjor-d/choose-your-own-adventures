@@ -11,10 +11,11 @@ class Start {
 start.resize(displayWidth, displayHeight);
  fill(20,150);
  rect(displayWidth/1, displayHeight/2, displayWidth/3, displayHeight);
+ rect(displayWidth/2, displayHeight/2, displayWidth/3, displayHeight);
  fill(200);
 textSize(32);
-text("Start", displayWidth/8, displayHeight/2); 
+text("Start (S)", displayWidth/2, displayHeight/2); 
  textSize(32);
-text("Options", displayWidth/8, displayHeight*2/3); 
+text("Quit (esc)", displayWidth/1-100, displayHeight/2); 
   }
 }
