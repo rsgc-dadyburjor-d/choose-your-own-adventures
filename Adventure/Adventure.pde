@@ -6,11 +6,9 @@ PImage start;
 void setup(){
 size(1280,800);
 frameRate(500);
-noCursor();
-start = loadImage("Adventure.jpg");
-cursor = loadImage("cursor.png");
 
-cursor.resize(50,50);
+start = loadImage("Adventure.jpg");
+
 rectMode(CENTER);
 textAlign(CENTER);
 
@@ -22,11 +20,11 @@ void draw(){
      bg1.drawAt(0, 0, 0.4, 0.4);
 
  } else if (scene == 2) {
-   background(20);
+   background(40);
    
   }
   
-  image(cursor, mouseX,mouseY);
+  
 }
 void keyPressed() { //advances scene on keypress
   scene += 1;
