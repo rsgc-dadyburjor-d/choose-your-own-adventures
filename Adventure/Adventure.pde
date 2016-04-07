@@ -18,6 +18,7 @@ void draw(){
 
   if (scene == 1) {
      bg1.drawAt(0, 0, 0.4, 0.4);
+     
 
  } else if (scene == 2) {
    background(40);
