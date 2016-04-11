@@ -4,16 +4,16 @@ PImage start;
 PImage player;
 int mouse = mouseX;
 int scene = 1;
-int X=1;
-int Y=1;
+int X= 64;
+int Y= 40;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
 void setup() {
   size(1280, 800);
   frameRate(120);
-  player = loadImage("player.png");
-  start = loadImage("Adventure.jpg");
+  player = loadImage("player.png"); // PlayerSprite
+  
 
   rectMode(CENTER);
   textAlign(CENTER);
@@ -42,22 +42,21 @@ void draw() {
     background(200);
   }
 }
-void keyPressed() {
+void keyPressed() { //KeyMappings for Player
 
   if (key == CODED) {
-    if (keyCode == LEFT) {
+    if (keyCode == LEFT) { //LEFT MOVEMENT
       X+=-4;
     
     }
-     if (keyCode == RIGHT) {
+     if (keyCode == RIGHT) { //RIGHT MOVEMENT
       X+=4;
      }
-
     
-    if (keyCode == UP) {
+    if (keyCode == UP) { //UP MOVEMENT
       Y+=-4;
     }
-    if (keyCode == DOWN) {
+    if (keyCode == DOWN) { //DOWN MOVEMENT
       Y+=4;
     }
   }
