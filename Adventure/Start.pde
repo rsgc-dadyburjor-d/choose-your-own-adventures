@@ -12,7 +12,7 @@ class Start {
     image(start, 0, 0);
     start.resize(displayWidth+200, displayHeight+200);
     
-
+background(100);
     //rectangles
     fill(20, 150);
   

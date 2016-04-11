@@ -1,6 +1,7 @@
 
 PImage cursor;
 PImage start;
+PImage player;
 int mouse = mouseX;
  int scene = 1;
  Start menu = new Start();
@@ -8,12 +9,12 @@ int mouse = mouseX;
 void setup(){
 size(1280,800);
 frameRate(60);
-
+player = loadImage("player.png");
 start = loadImage("Adventure.jpg");
 
 rectMode(CENTER);
 textAlign(CENTER);
-
+imageMode(CENTER);
 }
  
 void draw(){
@@ -36,6 +37,8 @@ void draw(){
     
    if (scene == 2) {
     lvl1.drawAt(0, 0, 1, 1);
+    scale(5);
+    image(player, mouseX/5, mouseY/5);
     
   }
    if (scene == 3) {
