@@ -5,12 +5,13 @@ PImage player;
 int mouse = mouseX;
 int scene = 1;
 int X=1;
+int Y=1;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
 void setup() {
   size(1280, 800);
-  frameRate(60);
+  frameRate(120);
   player = loadImage("player.png");
   start = loadImage("Adventure.jpg");
 
@@ -28,12 +29,11 @@ void draw() {
   if (key == 's' || key == 'S') {
     scene=2;
   } else {
-    
   }
 
   if (scene == 2) {
     lvl1.drawAt(0, 0, 1, 1);
-    scale(5);
+    scale(10);
     image(player, X, Y);
   }
 
@@ -46,12 +46,19 @@ void keyPressed() {
 
   if (key == CODED) {
     if (keyCode == LEFT) {
-      X+=-5;
+      X+=-4;
+    
     }
-          else if (keyCode == RIGHT){
-            X+=5;
-          }
-          else if
+     if (keyCode == RIGHT) {
+      X+=4;
+     }
+
+    
+    if (keyCode == UP) {
+      Y+=-4;
     }
+    if (keyCode == DOWN) {
+      Y+=4;
     }
-  
+  }
+}
