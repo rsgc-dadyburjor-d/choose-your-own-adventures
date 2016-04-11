@@ -18,21 +18,25 @@ textAlign(CENTER);
 void draw(){
 
   if (scene == 1) {
-     bg1.drawAt(0, 0, 0.4, 0.4);
+     bg1.drawAt(0, 0, 1, 1);
   }
     
-   else if (key == 'b' || key == 'B') {
+ 
+
+ if (key == 's' || key == 'S') {
        scene=2;
        }
        else {
       scene = 1;
        }
-
   
  
     
     
    if (scene == 2) {
+     background(32);
+  }
+   if (scene == 3) {
      background(200);
   }
 
