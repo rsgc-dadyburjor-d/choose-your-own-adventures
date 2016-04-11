@@ -22,8 +22,11 @@ background(100);
 
     //Text
     fill(200);
-    textSize(72);
+    textSize(40);
     text("Start (S)", displayWidth/2, displayHeight/2); 
+    fill(255);
+    textSize(70);
+    text("SHOOT", displayWidth/2, displayHeight/9); 
     textSize(20);
   
     
