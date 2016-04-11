@@ -3,7 +3,8 @@ PImage cursor;
 PImage start;
 int mouse = mouseX;
  int scene = 1;
- Start bg1 = new Start();
+ Start menu = new Start();
+ Lvl1 lvl1 = new Lvl1();
 void setup(){
 size(1280,800);
 frameRate(60);
@@ -18,7 +19,7 @@ textAlign(CENTER);
 void draw(){
 
   if (scene == 1) {
-     bg1.drawAt(0, 0, 1, 1);
+     menu.drawAt(0, 0, 1, 1);
   }
     
  
@@ -34,7 +35,8 @@ void draw(){
     
     
    if (scene == 2) {
-     background(32);
+    lvl1.drawAt(0, 0, 1, 1);
+    
   }
    if (scene == 3) {
      background(200);

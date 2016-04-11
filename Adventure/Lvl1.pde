@@ -8,6 +8,8 @@ class Lvl1 {
   //yAnchor - vertical anchor for where the robot is drawn
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     image(start, 0,0);
+    background(200);
+    
     
   }
 }
