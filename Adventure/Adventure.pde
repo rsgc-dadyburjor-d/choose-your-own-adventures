@@ -15,26 +15,27 @@ void setup() {
   player = loadImage("player.png"); // PlayerSprite
   
 
-  rectMode(CENTER);
-  textAlign(CENTER);
-  imageMode(CENTER);
+  rectMode(CENTER); //Rect loads Centered
+  textAlign(CENTER);//Text Loads Centered
+  imageMode(CENTER);//Images Load Centered
 }
 
-void draw() {
+void draw() { //Runs
 
-  if (scene == 1) {
+  if (scene == 1) { //SCENE 1
     menu.drawAt(0, 0, 1, 1);
   }
 
-  if (key == 's' || key == 'S') {
+  if (key == 's' || key == 'S') { //Start Prompt
     scene=2;
   } else {
+    //leave blank
   }
 
-  if (scene == 2) {
+  if (scene == 2) { //SCENE 2 (Lvl1)
     lvl1.drawAt(0, 0, 1, 1);
-    scale(10);
-    image(player, X, Y);
+    scale(10); //Player size
+    image(player, X, Y); //player Sprite
   }
 
 
@@ -42,6 +43,8 @@ void draw() {
     background(200);
   }
 }
+
+
 void keyPressed() { //KeyMappings for Player
 
   if (key == CODED) {
