@@ -33,9 +33,10 @@ void draw() { //Runs
   }
 
   if (scene == 2) { //SCENE 2 (Lvl1)
+  rectMode(CENTER);
     lvl1.drawAt(0, 0, 1, 1);
     scale(10); //Player size
-    image(player, X, Y); //player Sprite
+    image(player, X/10, Y/10); //player Sprite
   }
 
 
@@ -43,29 +44,29 @@ void draw() { //Runs
     background(200);
   }
 }
-<<<<<<< HEAD
+
 
 
 void keyPressed() { //KeyMappings for Player
-=======
-void keyPressed() {
->>>>>>> parent of 4957917... started descriptions
+
+
+
 
   if (key == CODED) {
     if (keyCode == LEFT) {
-      X+=-4;
+      X+=-13;
     
     }
      if (keyCode == RIGHT) {
-      X+=4;
+      X+=13;
      }
 
     
     if (keyCode == UP) {
-      Y+=-4;
+      Y+=-13;
     }
     if (keyCode == DOWN) {
-      Y+=4;
+      Y+=13;
     }
   }
 }
