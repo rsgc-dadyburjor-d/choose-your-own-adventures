@@ -4,11 +4,6 @@ PImage player;
 PImage photo;
 
 
-
-
-
-
-
   void Lvl1() {
   }
 
@@ -19,7 +14,7 @@ PImage photo;
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
     background(200);
-    
+    rect(enemyX,enemyY,90,90);
     
   }
 }

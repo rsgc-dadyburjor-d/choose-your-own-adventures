@@ -6,6 +6,9 @@ int mouse = mouseX;
 int scene = 1;
 int X=1;
 int Y=1;
+int enemyX=400;
+int enemyY=200;
+
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -22,7 +25,7 @@ void setup() {
 
 void draw() { //Runs
 
-  if (scene == 1) { //SCENE 1
+  if (scene == 1) { //SCENE 1 (MENU)
     menu.drawAt(0, 0, 1, 1);
   }
 
@@ -33,10 +36,17 @@ void draw() { //Runs
   }
 
   if (scene == 2) { //SCENE 2 (Lvl1)
-  rectMode(CENTER);
+    rectMode(CORNER);
     lvl1.drawAt(0, 0, 1, 1);
     scale(10); //Player size
     image(player, X/10, Y/10); //player Sprite
+    if (Y/10 < enemyY+90){
+      if (X/10 > enemyX+90){
+        fill(20);
+        rect(200,200,200,200);
+      }
+    }
+        
   }
 
 
@@ -55,13 +65,12 @@ void keyPressed() { //KeyMappings for Player
   if (key == CODED) {
     if (keyCode == LEFT) {
       X+=-13;
-    
     }
-     if (keyCode == RIGHT) {
+    if (keyCode == RIGHT) {
       X+=13;
-     }
+    }
 
-    
+
     if (keyCode == UP) {
       Y+=-13;
     }
