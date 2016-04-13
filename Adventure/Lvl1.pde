@@ -14,7 +14,7 @@ PImage photo;
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
     background(200);
-    rect(enemyX,enemyY,90,90);
+    rect(enemyX,enemyY,hp,hp);
     
   }
 }

@@ -8,7 +8,8 @@ int X=1;
 int Y=1;
 int enemyX=400;
 int enemyY=200;
-
+int hp=100;
+int dmg=10;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -40,15 +41,25 @@ void draw() { //Runs
     lvl1.drawAt(0, 0, 1, 1);
     scale(10); //Player size
     image(player, X/10, Y/10); //player Sprite
-    if (Y/10 < enemyY+90){
-      if (X/10 > enemyX+90){
-        fill(20);
-        rect(200,200,200,200);
+   
+    if (Y < enemyY + 90 &&
+    X < enemyX +90 &&
+    X > enemyX){
+    
+      if (hp > 1) {
+      hp-=1;
+    }
+    
+  
+      
+    //if (Y/10 < enemyY+90){
+      //if (X/10 > enemyX+90){
+        //fill(20);
+        //rect(200,200,200,200);
       }
     }
         
-  }
-
+  
 
   if (scene == 3) {
     background(200);
