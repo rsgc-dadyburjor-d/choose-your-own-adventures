@@ -21,7 +21,7 @@ void setup() {
   frameRate(120);
   player = loadImage("player.png");
   start = loadImage("Adventure.jpg");
-noStroke();
+  noStroke();
   rectMode(CENTER); //Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
@@ -45,75 +45,81 @@ void draw() { //Runs
     if (Y<enemyY);
     scale(10); //Player size
     image(player, X/health, Y/health); //player Sprite
-    
-    
-    if (mousePressed){
-      
-      rect(bulletX, bulletY, 5,5);
-    
-    
-       
+
+
+    if (mousePressed) {
+
+      rect(bulletX, bulletY, 5, 5);
+
+
+
       bulletX+=10;
-      
+
       if (bulletX > 800) {
-        if (mousePressed){
+        if (mousePressed) {
           bulletX = X/10;
           bulletY = Y/10;
-          rect(bulletX, bulletY, 5,5);
+          rect(bulletX, bulletY, 5, 5);
         }
       }
     }
-    
-     
-     if (hp < 5){
-      fill(10,10,0,0);
+
+
+    if (hp < 5) {
+      fill(10, 10, 0, 0);
     }
     
+     if (health < 5) {
+      background(#E00707);
+      fill(255);
+      textSize(10);
+      text("RIP IN PEPPERONI",65,40);
+    }
+
     if (Y < enemyY + 90 &&
-    Y > enemyY &&
-    X < enemyX +90 &&
-    X > enemyX){
-    
+      Y > enemyY &&
+      X < enemyX +90 &&
+      X > enemyX) {
+
       if (hp > 1) {
-      hp-=.01;
+        hp-=.01;
+      }
     }
-    }
-   
+
     //if (Y < enemyY + 90 &&
     //Y > enemyY &&
     //X < enemyX +90 &&
     //X > enemyX){
-    
+
     //  if (hp > 1) {
     //  hp-=.01;
     //}
-      
-      if (Y < enemyY + 90 &&
-    Y > enemyY &&
-    X < enemyX +90 &&
-    X > enemyX){
-    
+
+    if (Y < enemyY + 90 &&
+      Y > enemyY &&
+      X < enemyX +90 &&
+      X > enemyX) {
+
       if (health > 1) {
-      health-=11;
-    }
-     
-    
-  
-      
-    //if (Y/10 < enemyY+90){
-      //if (X/10 > enemyX+90){
-        //fill(20);
-        //rect(200,200,200,200);
+        health-=11;
       }
+
+
+
+
+      //if (Y/10 < enemyY+90){
+      //if (X/10 > enemyX+90){
+      //fill(20);
+      //rect(200,200,200,200);
     }
-        
-  
+  }
+
+
 
   if (scene == 3) {
     background(200);
   }
-
-    }
+}
 
 
 void keyPressed() { //KeyMappings for Player
