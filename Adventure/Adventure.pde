@@ -12,7 +12,7 @@ int hp=100;
 int dmg=10;
 int bulletX = X;
 int bulletY = Y;
-int health;
+int health = 10 ;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -44,7 +44,7 @@ void draw() { //Runs
     lvl1.drawAt(0, 0, 1, 1);
     if (Y<enemyY);
     scale(10); //Player size
-    image(player, X/10, Y/10); //player Sprite
+    image(player, X/health, Y/health); //player Sprite
     
     
     if (mousePressed){
@@ -79,15 +79,23 @@ void draw() { //Runs
     }
     }
    
-    if (Y < enemyY + 90 &&
+    //if (Y < enemyY + 90 &&
+    //Y > enemyY &&
+    //X < enemyX +90 &&
+    //X > enemyX){
+    
+    //  if (hp > 1) {
+    //  hp-=.01;
+    //}
+      
+      if (Y < enemyY + 90 &&
     Y > enemyY &&
     X < enemyX +90 &&
     X > enemyX){
     
-      if (hp > 1) {
-      hp-=.01;
+      if (health > 1) {
+      health-=11;
     }
-     
      
     
   
