@@ -6,12 +6,13 @@ int mouse = mouseX;
 int scene = 1;
 int X=1;
 int Y=1;
-int enemyX=400;
+int enemyX=800;
 int enemyY=200;
 int hp=100;
 int dmg=10;
 int bulletX = X;
 int bulletY = Y;
+int health;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -41,6 +42,7 @@ void draw() { //Runs
   if (scene == 2) { //SCENE 2 (Lvl1)
     rectMode(CORNER);
     lvl1.drawAt(0, 0, 1, 1);
+    if (Y<enemyY);
     scale(10); //Player size
     image(player, X/10, Y/10); //player Sprite
     
@@ -67,6 +69,16 @@ void draw() { //Runs
       fill(10,10,0,0);
     }
     
+    if (Y < enemyY + 90 &&
+    Y > enemyY &&
+    X < enemyX +90 &&
+    X > enemyX){
+    
+      if (hp > 1) {
+      hp-=.01;
+    }
+    }
+   
     if (Y < enemyY + 90 &&
     Y > enemyY &&
     X < enemyX +90 &&

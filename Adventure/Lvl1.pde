@@ -16,9 +16,16 @@ PImage photo;
     background(200);
     rect(enemyX,enemyY,hp,hp);
     if (X < enemyX){
-      enemyX-=2;
-    } if (X > enemyX){
-      enemyX+=2;
+      enemyX-=1;
+    } 
+    if (X > enemyX){
+      enemyX+=1;
+    }
+    if (Y < enemyY){
+      enemyY-=1;
+    }
+    if (Y > enemyY){
+      enemyY+=1;
     }
   }
 }
