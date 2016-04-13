@@ -11,7 +11,7 @@ int enemyY=200;
 int hp=100;
 int dmg=10;
 int bulletX = X;
-int bulletY = Y:
+int bulletY = Y;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -43,18 +43,40 @@ void draw() { //Runs
     lvl1.drawAt(0, 0, 1, 1);
     scale(10); //Player size
     image(player, X/10, Y/10); //player Sprite
-   
-    if (Y < enemyY + 90 &&
-    Y > enemyY &&
-    X < enemyX +90 &&
-    X > enemyX){
     
-      if (hp > 1) {
-      hp-=.01;}
+    
+    if (mousePressed){
+      
+      rect(bulletX, bulletY, 5,5);
+    
+    
+       
+      bulletX+=10;
+      
+      if (bulletX > 800) {
+        if (mousePressed){
+          bulletX = X/10;
+          bulletY = Y/10;
+          rect(bulletX, bulletY, 5,5);
+        }
+      }
+    }
+    
      
-      if (hp < 5){
+     if (hp < 5){
       fill(10,10,0,0);
     }
+    
+    if (Y < enemyY + 90 &&
+    bulletY > enemyY &&
+    bulletX < enemyX +90 &&
+    bulletX > enemyX){
+    
+      if (hp > 1) {
+      hp-=.01;
+    }
+     
+     
     
   
       
@@ -70,8 +92,8 @@ void draw() { //Runs
   if (scene == 3) {
     background(200);
   }
-}
 
+    }
 
 
 void keyPressed() { //KeyMappings for Player
