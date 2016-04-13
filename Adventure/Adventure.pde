@@ -10,6 +10,8 @@ int enemyX=400;
 int enemyY=200;
 int hp=100;
 int dmg=10;
+int bulletX = X;
+int bulletY = Y:
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -18,7 +20,7 @@ void setup() {
   frameRate(120);
   player = loadImage("player.png");
   start = loadImage("Adventure.jpg");
-
+noStroke();
   rectMode(CENTER); //Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
@@ -43,11 +45,15 @@ void draw() { //Runs
     image(player, X/10, Y/10); //player Sprite
    
     if (Y < enemyY + 90 &&
+    Y > enemyY &&
     X < enemyX +90 &&
     X > enemyX){
     
       if (hp > 1) {
-      hp-=1;
+      hp-=.01;}
+     
+      if (hp < 5){
+      fill(10,10,0,0);
     }
     
   
