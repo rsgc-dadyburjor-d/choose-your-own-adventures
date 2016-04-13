@@ -68,9 +68,9 @@ void draw() { //Runs
     }
     
     if (Y < enemyY + 90 &&
-    bulletY > enemyY &&
-    bulletX < enemyX +90 &&
-    bulletX > enemyX){
+    Y > enemyY &&
+    X < enemyX +90 &&
+    X > enemyX){
     
       if (hp > 1) {
       hp-=.01;
