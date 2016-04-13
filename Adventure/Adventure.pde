@@ -13,8 +13,7 @@ int dmg=10;
 int bulletX = X;
 int bulletY = Y;
 int health = 10 ;
-int velocityX = 0;
-int velocityY = 0;
+
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
 void setup() {
@@ -45,7 +44,7 @@ void draw() { //Runs
     lvl1.drawAt(0, 0, 1, 1);
     if (Y<enemyY);
     scale(10); //Player size
-    image(player, X/health + velocityX, Y/health + velocityY); //player Sprite
+    image(player, X/health, Y/health); //player Sprite
 
 
     if (mousePressed) {
@@ -129,17 +128,18 @@ void keyPressed() { //KeyMappings for Player
 
 
  
-    if (key == LEFT) {
-      velocityX+=-13;
+    if (keyCode == LEFT) {
+      X+=-13;
     }
-    if (key == RIGHT) {
-      velocityX+=13;
+    if (keyCode == RIGHT) {
+      X+=13;
     }
 
-    if (key == UP) {
-      velocityY+=-13;
+
+    if (keyCode == UP) {
+      Y+=-13;
     }
-    if (key == DOWN) {
-      velocityY+=13;
+    if (keyCode == DOWN) {
+      Y+=13;
     }
   }
