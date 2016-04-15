@@ -21,12 +21,13 @@ background(100);
     
 
     //Text
-    fill(200);
+    fill(255);
     textSize(40);
     text("Start (S)", displayWidth/2, displayHeight/2); 
+    text("Quit (ESC)", displayWidth/2, displayHeight/1.2); 
     fill(255);
     textSize(70);
-    text("SHOOT", displayWidth/2, displayHeight/9); 
+    text("Gordonger", displayWidth/2, displayHeight/9); 
     textSize(20);
   
     
