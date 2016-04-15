@@ -20,8 +20,10 @@ PImage photo;
     if (health < 5) {
       background(#E00707);
       fill(255);
-      textSize(150);
-      text("RIP IN PEPPERONI",30,displayHeight/2);
+      textSize(112);
+      text("Gents, What a bloodbath,",11,displayHeight/2);
+      textFont(subtitle);
+      text("that just won't do!",24,displayHeight/1.8);
     }
 
     //rect(enemyX,enemyY,hp,hp);
