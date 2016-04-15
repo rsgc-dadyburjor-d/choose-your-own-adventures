@@ -12,23 +12,23 @@ class Start {
     image(start, 0, 0);
     start.resize(displayWidth+200, displayHeight+200);
     
-background(100);
-    //rectangles
-    fill(20, 150);
-  
-    rect(displayWidth/2, displayHeight/2, displayWidth/3, displayHeight); //Start rect
+background(#8B0000);
+    
     
     
 
     //Text
+    textAlign(CORNER);//Text Loads Centered
+    fill(190);
+    textSize(60);
+    text("Start (s)", 50, displayHeight/1.4); 
+    text("Quit (esc)", 50, displayHeight/1.2); 
+    
     fill(255);
-    textSize(40);
-    text("Start (S)", displayWidth/2, displayHeight/2); 
-    text("Quit (ESC)", displayWidth/2, displayHeight/1.2); 
-    fill(255);
-    textSize(70);
-    text("Gordonger", displayWidth/2, displayHeight/9); 
+    textSize(250);
+    text("Gordonger", -15, displayHeight/4); 
     textSize(20);
+    
   
     
   }
