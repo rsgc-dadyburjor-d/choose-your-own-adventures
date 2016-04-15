@@ -15,15 +15,15 @@ class Start {
 background(#8B0000);
     
     
-    
+   
 
     //Text
     textAlign(CORNER);//Text Loads Centered
-    fill(190);
+    fill(20,20,20,100);
     textSize(60);
-    text("Start (s)", 50, displayHeight/1.4); 
-    text("Quit (esc)", 50, displayHeight/1.2); 
-    
+    text("Start (s)", 50, displayHeight/1.3); 
+    text("Quit (esc)", 50, displayHeight/1.15); 
+     image(gordon, X/health*10, Y/health*10);
     fill(255);
     textSize(250);
     text("Gordonger", -15, displayHeight/4); 

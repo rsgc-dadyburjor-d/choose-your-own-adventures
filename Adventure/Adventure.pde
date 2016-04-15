@@ -9,8 +9,8 @@ PImage ferrar;
 //variables
 
 int scene = 1; //Scene
-int X=0;//player X pos
-int Y=400; //player Y pos
+int X=140;//player X pos
+int Y=350; //player Y pos
 int enemyX=1400; //enemy X pos
 int enemyY=800; //enemy Y pos
 int hp=100; //enemy health
