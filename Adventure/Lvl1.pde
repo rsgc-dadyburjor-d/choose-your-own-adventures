@@ -21,7 +21,7 @@ PImage photo;
       background(#E00707);
       fill(255);
       textSize(150);
-      text("RIP IN PEPPERONI",20,displayHeight/2);
+      text("RIP IN PEPPERONI",30,displayHeight/2);
     }
 
     //rect(enemyX,enemyY,hp,hp);
