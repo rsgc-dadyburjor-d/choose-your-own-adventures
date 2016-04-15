@@ -14,8 +14,12 @@ PImage photo;
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
     background(#550000);
+    text("RUN",420,displayHeight/2);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
+    textSize(226);
+    fill(#710101);
+    
     
     if (health < 5) {
       background(#E00707);

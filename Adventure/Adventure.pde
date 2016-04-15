@@ -27,7 +27,7 @@ Lvl1 lvl1 = new Lvl1();
 void setup() {
 
   size(1280, 800);
-  frameRate(90);
+  frameRate(60);
   title = createFont("Bold.ttf", 32);
   subtitle = createFont("Roboto.ttf", 32);
   start = loadImage("Adventure.jpg");//menusprite

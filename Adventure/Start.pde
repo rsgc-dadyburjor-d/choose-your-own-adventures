@@ -31,7 +31,8 @@ background(#8B0000);
     fill(255);
     textSize(255);
     text("CHAINSAW", -14, displayHeight/3.8); 
-    textSize(20);
+    textSize(106);
+    text("FERRAR", 876, displayHeight/2.7);
     
   
     
