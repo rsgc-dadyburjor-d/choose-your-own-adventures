@@ -1,3 +1,5 @@
+PFont subtitle;
+PFont title;
 //Images
 
 PImage cursor;
@@ -26,6 +28,8 @@ void setup() {
 
   size(1280, 800);
   frameRate(90);
+  title = createFont("Bold.ttf", 32);
+  subtitle = createFont("Roboto.ttf", 32);
   start = loadImage("Adventure.jpg");//menusprite
   gordon = loadImage("Gordon.png");//playersprite
   ferrar = loadImage("ferrar.png");//enemysprite
