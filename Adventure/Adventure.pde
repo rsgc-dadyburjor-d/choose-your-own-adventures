@@ -1,13 +1,16 @@
-
+//Image 
 PImage cursor;
 PImage start;
 PImage player;
+PImage gordon;
+PImage ferrar;
+
 int mouse = mouseX;
 int scene = 1;
 int X=0;
 int Y=400;
-int enemyX=1200;
-int enemyY=200;
+int enemyX=1400;
+int enemyY=800;
 int hp=100;
 int dmg=10;
 int bulletX = X;
@@ -21,6 +24,8 @@ void setup() {
   frameRate(120);
   player = loadImage("player.png");
   start = loadImage("Adventure.jpg");
+  gordon = loadImage("Gordon.png");
+  ferrar = loadImage("ferrar.png");
   noStroke();
   rectMode(CENTER); //Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
@@ -43,8 +48,8 @@ void draw() { //Runs
     rectMode(CORNER);
     lvl1.drawAt(0, 0, 1, 1);
     if (Y<enemyY);
-    scale(10); //Player size
-    image(player, X/health, Y/health); //player Sprite
+ 
+
 
 
     if (mousePressed) {
@@ -69,13 +74,7 @@ void draw() { //Runs
       fill(10, 10, 0, 0);
     }
     
-     if (health < 5) {
-      background(#E00707);
-      fill(255);
-      textSize(10);
-      text("RIP IN PEPPERONI",65,40);
-    }
-
+     
     if (Y < enemyY + 90 &&
       Y > enemyY &&
       X < enemyX +90 &&
