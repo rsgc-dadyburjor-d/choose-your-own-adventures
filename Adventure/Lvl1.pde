@@ -15,8 +15,10 @@ PImage photo;
 
     background(#550000);
     text("RUN",420,displayHeight/2);
+    textSize(22);
+    text("Forgot to do your homework did you??",436,displayHeight/-6);
     image(gordon, X/health*10, Y/health*10);
-    image(ferrar,enemyX ,enemyY ); 
+    //image(ferrar,enemyX ,enemyY ); 
     textSize(226);
     fill(#710101);
     

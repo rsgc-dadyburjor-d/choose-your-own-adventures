@@ -22,11 +22,11 @@ background(#8B0000);
     fill(20,20,20,100);
     textFont(subtitle);
     textSize(40);
-    text("It's time (S)", 50, displayHeight/1.3); 
-    text("Triggered (ESC)", 50, displayHeight/1.15);
+    text("Let's get to it Gents (S)", 50, displayHeight/1.3); 
+    text("Feeling Triggered ? (ESC)", 50, displayHeight/1.15);
     textFont(title);
     textSize(60);
-    text("Been a while gents!", 730, displayHeight/1.15); 
+    text("''Feeling Jolly Great!''", 710, displayHeight/1.15); 
      image(gordon, X/health*10, Y/health*10);
      image(ferrar,1300 ,500 ); 
      
@@ -35,6 +35,8 @@ background(#8B0000);
     text("CHAINSAW", -14, displayHeight/3.8); 
     textSize(106);
     text("FARRAR", 876, displayHeight/2.7);
+     textSize(43);
+    text("KEITH", 755, displayHeight/3.15);
     
   
     
