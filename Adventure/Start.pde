@@ -22,11 +22,11 @@ background(#8B0000);
     fill(20,20,20,100);
     textFont(subtitle);
     textSize(20);
-    text("Let's get to it Gents (S)", 50, displayHeight/1.19); 
-    text("Feeling Triggered ? (ESC)", 50, displayHeight/1.15);
+    text("Let's get to it Gents (S)", 20, displayHeight/1.05); 
+    text("Feeling Triggered ? (ESC)", 20, displayHeight/1.02);
     textFont(title);
-    textSize(60);
-    text("''Feeling Jolly Great!''", 710, displayHeight/1.15); 
+    textSize(90);
+    text("''Feeling Jolly Great!''", 430, displayHeight/1.05); 
      image(gordon, 137, 356);
      image(ferrar,1300 ,500 ); 
      

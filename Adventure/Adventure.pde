@@ -84,7 +84,7 @@ void draw() { //Runs
 
     if (Y < enemyY + 90 &&
       Y > enemyY &&
-      X < enemyX +90 &&
+      X < enemyX + 90 &&
       X > enemyX) {
 
       if (hp > 1) {
@@ -101,10 +101,10 @@ void draw() { //Runs
     //  hp-=.01;
     //}
 
-    if (Y < enemyY + 90 &&
-      Y > enemyY &&
-      X < enemyX +90 &&
-      X > enemyX) {
+    if (Y < enemyY + 180 &&
+      Y > enemyY -180 &&
+      X < enemyX + 180 &&
+      X > enemyX -180) {
 
       if (health > 1) {
         health-=11;
