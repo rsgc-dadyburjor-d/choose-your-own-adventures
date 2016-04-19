@@ -26,7 +26,7 @@ Lvl1 lvl1 = new Lvl1();
 
 void setup() {
 
-  fullScreen();
+  size(1280, 800);
   frameRate(60);
   title = createFont("Bold.ttf", 32);
   subtitle = createFont("Roboto.ttf", 32);
