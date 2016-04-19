@@ -12,7 +12,7 @@ PImage photo;
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-
+saw.pause();
     background(#550000);
     text("RUN",420,displayHeight/2);
     textSize(22);
@@ -28,6 +28,8 @@ PImage photo;
     
     
     if (health < 5) {
+      song.pause();
+      
       background(#E00707);
       fill(255);
       textSize(112);
@@ -39,6 +41,7 @@ PImage photo;
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
       enemyX-=1;
+     
     } 
     if (X-30 > enemyX){
       enemyX+=1;

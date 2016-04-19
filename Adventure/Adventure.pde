@@ -1,4 +1,13 @@
-import processing.sound.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+Minim minim;
+AudioPlayer song;
+ AudioPlayer saw;
 
 PFont subtitle;
 PFont title;
@@ -10,7 +19,7 @@ PImage player;
 PImage gordon;
 PImage ferrar;
 
-SoundFile music;
+
 //variables
 
 int scene = 1; //Scene
@@ -31,6 +40,15 @@ void setup() {
 
   fullScreen();
   frameRate(60);
+  
+ minim = new Minim(this);
+ 
+  
+  song = minim.loadFile("Music.mp3");
+  saw = minim.loadFile("Chainsaw.mp3");
+  saw = minim.loadFile("Chainsaw.mp3");
+  song.play();
+  
   title = createFont("Bold.ttf", 32);
   subtitle = createFont("Roboto.ttf", 32);
   start = loadImage("Adventure.jpg");//menusprite
@@ -42,8 +60,7 @@ void setup() {
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
   
-  music = new SoundFile(this, "Music.mp3");
-  music.play();
+  
 }
 
 void draw() { //Runs
@@ -54,12 +71,17 @@ void draw() { //Runs
 
   if (key == 's' || key == 'S') { //Start Prompt
     scene=2; //moves to level 1
+    saw = minim.loadFile("next.wav");
+  saw.play();
   } else {
     //leave blank
+   
   }
 
   if (scene == 2) { //SCENE 2 (Lvl1)
-    rectMode(CORNER); //rect draws from corner
+  
+  
+rectMode(CORNER); //rect draws from corner
     lvl1.drawAt(0, 0, 1, 1);
     
 
