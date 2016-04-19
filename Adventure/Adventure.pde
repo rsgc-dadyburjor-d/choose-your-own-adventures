@@ -1,3 +1,5 @@
+import processing.sound.*;
+
 PFont subtitle;
 PFont title;
 //Images
@@ -8,6 +10,7 @@ PImage player;
 PImage gordon;
 PImage ferrar;
 
+SoundFile music;
 //variables
 
 int scene = 1; //Scene
@@ -38,6 +41,9 @@ void setup() {
   rectMode(CENTER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
+  
+  music = new SoundFile(this, "Music.mp3");
+  music.play();
 }
 
 void draw() { //Runs
