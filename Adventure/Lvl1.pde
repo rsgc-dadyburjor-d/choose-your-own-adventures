@@ -29,13 +29,19 @@ saw.pause();
     
     if (health < 5) {
       song.pause();
-      
+      death.play();
+      death2.play();
       background(#E00707);
       fill(255);
       textSize(112);
       text("Gents, What a bloodbath,",11,displayHeight/2);
+      textSize(112);
       textFont(subtitle);
       text("that just won't do!",24,displayHeight/1.8);
+      textSize(512);
+      fill(255,255,255,80);
+      text("Dead",11,displayHeight/2+200);
+      
     }
 
     //rect(enemyX,enemyY,hp,hp);

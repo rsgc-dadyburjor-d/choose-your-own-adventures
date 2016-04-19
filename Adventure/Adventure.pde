@@ -8,6 +8,8 @@ import ddf.minim.ugens.*;
 Minim minim;
 AudioPlayer song;
  AudioPlayer saw;
+ AudioPlayer death;
+ AudioPlayer death2;
 
 PFont subtitle;
 PFont title;
@@ -46,7 +48,8 @@ void setup() {
   
   song = minim.loadFile("Music.mp3");
   saw = minim.loadFile("Chainsaw.mp3");
-  saw = minim.loadFile("Chainsaw.mp3");
+  death = minim.loadFile("Scream.mp3");
+  death2 = minim.loadFile("death.mp3");
   song.play();
   
   title = createFont("Bold.ttf", 32);
@@ -71,8 +74,7 @@ void draw() { //Runs
 
   if (key == 's' || key == 'S') { //Start Prompt
     scene=2; //moves to level 1
-    saw = minim.loadFile("next.wav");
-  saw.play();
+    
   } else {
     //leave blank
    
@@ -147,9 +149,19 @@ rectMode(CORNER); //rect draws from corner
       //rect(200,200,200,200);
     }
   }
-
-
-
+// borders
+if (X > 1280){
+  X=1280;
+}
+if (X < 0){
+  X=1;
+}
+if (Y > 800){
+  Y=800;
+}
+if (Y < 0){
+  Y=0;
+}
   if (scene == 3) {
     background(200);
   }
