@@ -13,7 +13,7 @@ PImage photo;
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 saw.pause();
-    background(#550000);
+    background(30);
     text("RUN",420,displayHeight/2);
     textSize(22);
     text("Forgot to do your homework did you??",430,displayHeight/1.9);
@@ -41,7 +41,8 @@ saw.pause();
       textSize(512);
       fill(255,255,255,80);
       text("Dead",11,displayHeight/2+200);
-      
+      textSize(50);
+      text("Exit (ESC)",24,displayHeight/1.04);
     }
 
     //rect(enemyX,enemyY,hp,hp);
@@ -60,3 +61,5 @@ saw.pause();
     }
   }
 }
+
+  

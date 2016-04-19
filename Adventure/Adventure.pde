@@ -25,8 +25,8 @@ PImage ferrar;
 //variables
 
 int scene = 1; //Scene
-int X=140;//player X pos
-int Y=350; //player Y pos
+int X=137;//player X pos
+int Y=356; //player Y pos
 int enemyX=1400; //enemy X pos
 int enemyY=800; //enemy Y pos
 int hp=100; //enemy health
@@ -34,6 +34,7 @@ int dmg=10; //player damage
 int bulletX = X; //bullet X pos
 int bulletY = Y; //bullet Y pos
 int health = 10; //player health
+
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -172,20 +173,29 @@ void keyPressed() { //KeyMappings for Player
 
 
 
-
-
   if (keyCode == LEFT) {
     X+=-13;
+   
   }
   if (keyCode == RIGHT) {
     X+=13;
+  
   }
 
 
   if (keyCode == UP) {
     Y+=-13;
+   
   }
   if (keyCode == DOWN) {
     Y+=13;
+  }
+    if (keyCode == ENTER) {
+    scene = 1;
+    redraw();
+    enemyX=1400; 
+    enemyY=800;
+   health=10;
+   
   }
 }
