@@ -10,12 +10,6 @@ AudioPlayer song;
  AudioPlayer saw;
  AudioPlayer death;
  AudioPlayer death2;
- 
-float x = 0;
-float speed = 3.0;
-float left = 0;
-float right = 0;
- 
 
 PFont subtitle;
 PFont title;
@@ -74,7 +68,6 @@ void setup() {
 }
 
 void draw() { //Runs
-
 
   if (scene == 1) { //SCENE 1 (MENU)
     menu.drawAt(0, 0, 1, 1);
@@ -141,8 +134,8 @@ rectMode(CORNER); //rect draws from corner
 
     if (Y < enemyY + 180 &&
       Y > enemyY -180 &&
-      x < enemyX + 180 &&
-      x > enemyX -180) {
+      X < enemyX + 180 &&
+      X > enemyX -180) {
 
       if (health > 1) {
         health-=11;
@@ -175,62 +168,34 @@ if (Y < 0){
   }
 }
 
-void keyReleased()
-{
-  if (key == CODED)
-  {
-    if (keyCode == LEFT)
-    {
-      left = 0;
-    }
-    if (keyCode == RIGHT)
-    {
-      right = 0;
-    }
-  }
-}
 
-void keyPressed()
-{
-  if (key == CODED)
-  {
-    if (keyCode == LEFT)
-    {
-      left = 1;
-    }
-    if (keyCode == RIGHT)
-    {
-      right = 1;
-    }
-  }
-}
-
-//void keyPressed() { //KeyMappings for Player
+void keyPressed() { //KeyMappings for Player
 
 
 
-//  if (keyCode == LEFT) {
-//    X+=-13;
+  if (keyCode == LEFT) {
+    X+=-13;
    
-//  }
-//  if (keyCode == RIGHT) {
-//    X+=13;
+  }
+  if (keyCode == RIGHT) {
+    X+=13;
   
-//  }
+  }
 
 
-//  if (keyCode == UP) {
-//    Y+=-13;
+  if (keyCode == UP) {
+    Y+=-13;
    
-//  }
-//  if (keyCode == DOWN) {
-//    Y+=13;
-//  }
-//    if (keyCode == ENTER) {
-//    scene = 1;
-//    redraw();
-//    enemyX=1400; 
-//    enemyY=800;
-//   health=10;
+  }
+  if (keyCode == DOWN) {
+    Y+=13;
+  }
+    if (keyCode == ENTER) {
+    scene = 1;
+    redraw();
+    enemyX=1400; 
+    enemyY=800;
+   health=10;
    
-//  }
+  }
+}

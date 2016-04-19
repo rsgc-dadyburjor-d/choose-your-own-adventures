@@ -17,7 +17,7 @@ saw.pause();
     text("RUN",420,displayHeight/2);
     textSize(22);
     text("Forgot to do your homework did you??",430,displayHeight/1.9);
-    image(gordon, x, Y/health*10);
+    image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
    
  
@@ -25,8 +25,7 @@ saw.pause();
     
     textSize(226);
     fill(#710101);
-    x += (right - left) * speed;
-ellipse(x, height / 2, 100, 100);
+    
     
     if (health < 5) {
       song.pause();
