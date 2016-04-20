@@ -31,7 +31,7 @@ PImage finish;
 
 //variables
 
-int scene = 3; //Scene position
+int scene = 1; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
 int enemyX=1400; //enemy X pos
@@ -51,7 +51,7 @@ Lvl2 lvl2 = new Lvl2();
 void setup() {
 
   fullScreen(); //1280x800
-  frameRate(30); //enemy physics tied to fps
+  frameRate(60); //enemy physics tied to fps
 
   // Music calls
   minim = new Minim(this);
@@ -200,17 +200,17 @@ void keyPressed() { //KeyMappings for Player
 
 
   if (keyCode == LEFT) { //Move left
-    X+=-13;
+    X+=-30;
   }
   if (keyCode == RIGHT) { //Move right
-    X+=13;
+    X+=30;
   }
 
   if (keyCode == UP) { //move up
-    Y+=-13;
+    Y+=-30;
   }
   if (keyCode == DOWN) { //move down
-    Y+=13;
+    Y+=30;
   }
   if (keyCode == ENTER) { //after death resets game
   //all variables are reset

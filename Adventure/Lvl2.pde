@@ -8,16 +8,21 @@ class Lvl2 {
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     background(30);
-    textSize(300);
-    pushMatrix();
-    scale(4);
-    image(finish,320 ,0 );
-    popMatrix();
-    textFont(title);
-    textSize(120);
-    text("WINNER",420,displayHeight/3);
-    textSize(60);
-    text("Great work Gents!",420,displayHeight/1.9);
-    text("level 2 Starting",420,displayHeight/1.5);
+      
+      
+      fill(255);
+      textSize(132);
+      text("Gents, Well Done!",11,displayHeight/2);
+      textSize(112);
+      textFont(subtitle);
+      text("Ill be back in a jiffy!",24,displayHeight/1.8);
+      textSize(612);
+      fill(255,255,255,80);
+      text("SUCCESS",11,displayHeight/2+200);
+      textSize(50);
+      text("Exit (ESC)",24,displayHeight/1.04);
+      text("Menu (Enter)",24,displayHeight/1.13);
+      level1.pause();
+      fill(255);
   }
 }
