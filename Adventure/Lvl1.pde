@@ -65,6 +65,8 @@ saw.pause();
       text("Menu (Enter)",24,displayHeight/1.13);
       level1.pause();
       fill(255);
+      X=-10000;
+      Y=-10000;
       
     }
     

@@ -14,7 +14,7 @@ AudioPlayer death; //death scream
 AudioPlayer death2; //death music
 AudioPlayer enemy; //enemy movement
 AudioPlayer level1; //enemy movement
-
+AudioPlayer win; //level pass
 //Custom Fonts
 PFont subtitle; //smaller thinner text
 PFont title; //bolded text
@@ -62,6 +62,7 @@ void setup() {
   death2 = minim.loadFile("death.mp3");
   enemy = minim.loadFile("Enemy.mp3");
   level1 = minim.loadFile("Level1.mp3");
+  win = minim.loadFile("Win.mp3");
   
   //plays music 
   //song.play();
@@ -90,6 +91,7 @@ void draw() { //Runs once in program
     menu.drawAt(0, 0, 1, 1);
     death2.pause();
     song.play();
+    win.pause();
   }
 
   if (key == 's' || key == 'S') { //Start Command

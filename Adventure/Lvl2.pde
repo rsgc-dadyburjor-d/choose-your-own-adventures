@@ -8,7 +8,7 @@ class Lvl2 {
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     background(30);
-      
+      win.play();
       
       fill(255);
       textSize(132);
