@@ -8,10 +8,12 @@ import ddf.minim.ugens.*;
 
 //audio Tracks
 Minim minim;
-AudioPlayer song; //game music
+AudioPlayer song; //menu music
 AudioPlayer saw; //WIP
 AudioPlayer death; //death scream
 AudioPlayer death2; //death music
+AudioPlayer enemy; //enemy movement
+AudioPlayer level1; //enemy movement
 
 //Custom Fonts
 PFont subtitle; //smaller thinner text
@@ -56,7 +58,11 @@ void setup() {
   saw = minim.loadFile("Chainsaw.mp3");
   death = minim.loadFile("Scream.mp3");
   death2 = minim.loadFile("death.mp3");
-  song.play();
+  enemy = minim.loadFile("Enemy.mp3");
+  level1 = minim.loadFile("Level1.mp3");
+  
+  //plays music 
+  //song.play();
 
   // font calls
   title = createFont("Bold.ttf", 32); //thick font
@@ -80,16 +86,20 @@ void draw() { //Runs once in program
 
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
     menu.drawAt(0, 0, 1, 1);
+    death2.pause();
+    song.play();
   }
 
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
+    level1.play();
   } else {
     //leave blank, No else statement needed.
   }
 
   if (scene == 2) { //SCENE 2 (Lvl1)
 
+song.pause();
 
     rectMode(CORNER); //rect draws from corner
     lvl1.drawAt(0, 0, 1, 1);//lvl1 draw
@@ -200,6 +210,7 @@ void keyPressed() { //KeyMappings for Player
   }
   if (keyCode == ENTER) { //after death resets game
   //all variables are reset
+  song.play();
     scene = 1;
     redraw();
     enemyX=1400; 

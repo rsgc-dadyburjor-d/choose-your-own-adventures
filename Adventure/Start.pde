@@ -22,6 +22,7 @@ background(#8B0000);
     fill(20,20,20,100);
     textFont(subtitle);
     textSize(20);
+   
     text("Let's get to it Gents (S)", 20, displayHeight/1.05); 
     text("Feeling Triggered ? (ESC)", 20, displayHeight/1.02);
     textFont(title);

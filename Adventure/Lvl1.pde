@@ -18,6 +18,7 @@ saw.pause();
     text("RUN",420,displayHeight/2);
     textSize(22);
     text("Forgot to do your homework did you??",420,displayHeight/1.9);
+    text("level 1",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
    text(deathcount,10,100);
@@ -46,21 +47,26 @@ saw.pause();
       text("Dead",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);
+      text("Menu (Enter)",24,displayHeight/1.13);
+      level1.pause();
     }
     
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
       enemyX-=1;
-     
+     enemy.play();
     } 
     if (X-30 > enemyX){
       enemyX+=1;
+      
     }
     if (Y-30 < enemyY){
       enemyY-=1;
+      
     }
     if (Y-20 > enemyY){
       enemyY+=1;
+      
     }
   }
 }
