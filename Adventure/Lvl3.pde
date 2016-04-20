@@ -1,10 +1,10 @@
-class Lvl1 { 
+class Lvl3 { 
 PImage player;
 
 PImage photo;
 
 
-  void Lvl1() {
+  void Lvl3() {
   }
 
   //void drawAt will draw the robot at the specified location
@@ -15,16 +15,16 @@ PImage photo;
 saw.pause();
 
             
-    background(30);
+    background(100);
     textSize(300);
     pushMatrix();
     scale(4);
     image(finish,320 ,0 );
     popMatrix();
-    text("RUN",420,displayHeight/2);
+    text("ESCAPE",420,displayHeight/2);
     textSize(22);
     text("Forgot to do your homework did you??",420,displayHeight/1.9);
-    text("level 1",420,displayHeight/1.8);
+    text("level 2",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -44,7 +44,7 @@ saw.pause();
     if (health < 5) {
       
       
-  
+  level2.pause();
        
       song.pause();
       death.play();
@@ -67,7 +67,7 @@ saw.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-     
+         
       
     }
     
@@ -106,9 +106,18 @@ saw.pause();
       enemyY+=1;
     }
       if (X-30 > 1200){
-      scene=3;
+      scene=5;
 }
-  
+  if (Y < enemyY + 180 &&
+      Y > enemyY -180 &&
+      X < enemyX + 180 &&
+      X > enemyX -180) {
+
+      if (health > 1) {
+        health-=11; //subtracts health on contact
+      }
+      }
+
 
   }
 }

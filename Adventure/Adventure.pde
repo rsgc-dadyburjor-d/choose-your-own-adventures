@@ -14,6 +14,7 @@ AudioPlayer death; //death scream
 AudioPlayer death2; //death music
 AudioPlayer enemy; //enemy movement
 AudioPlayer level1; //enemy movement
+AudioPlayer level2; //enemy movement
 AudioPlayer win; //level pass
 //Custom Fonts
 PFont subtitle; //smaller thinner text
@@ -48,6 +49,8 @@ int deathcount = 0; //number of deaths (WIP)
 Start menu = new Start(); //start menu
 Lvl1 lvl1 = new Lvl1(); //lvl1
 Lvl2 lvl2 = new Lvl2();
+Lvl3 lvl3 = new Lvl3();
+Win2 win2 = new Win2();
 void setup() {
 
   fullScreen(); //1280x800
@@ -62,6 +65,7 @@ void setup() {
   death2 = minim.loadFile("death.mp3");
   enemy = minim.loadFile("Enemy.mp3");
   level1 = minim.loadFile("Level1.mp3");
+  level2 = minim.loadFile("Level2.mp3");
   win = minim.loadFile("Win.mp3");
   
   //plays music 
@@ -102,6 +106,13 @@ void draw() { //Runs once in program
   }
  if (scene == 3) { //SCENE 3 (win)
  lvl2.drawAt(0, 0, 1, 1);
+ }
+ if (scene == 4) { //SCENE 4 (lvl2)
+ lvl3.drawAt(0, 0, 1, 1);
+ }
+ if (scene == 5) { //SCENE 4 (lvl2)
+ win2.drawAt(0, 0, 1, 1);
+ 
  }
   if (scene == 2) { //SCENE 2 (Lvl1)
 

@@ -1,5 +1,5 @@
-class Lvl2 { 
-  void Lvl2(){
+class Win2 { 
+  void Win2(){
   }
 
   //void drawAt will draw the robot at the specified location
@@ -7,7 +7,7 @@ class Lvl2 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(30);
+    background(322);
       win.play();
       level2.pause();
       fill(255);
@@ -31,7 +31,7 @@ class Lvl2 {
     health=10;
     X=137;
     Y=356;
-    scene=4; //moves to Scene 2 (level 1)
+    scene=1; //moves to Scene 2 (level 1)
     level2.play();
     
     
