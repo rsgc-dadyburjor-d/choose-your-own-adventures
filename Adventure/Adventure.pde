@@ -27,10 +27,11 @@ PImage player;
 PImage gordon;
 PImage ferrar;
 PImage violin;
+PImage finish;
 
 //variables
 
-int scene = 1; //Scene position
+int scene = 3; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
 int enemyX=1400; //enemy X pos
@@ -42,14 +43,15 @@ int bulletY = Y; //bullet Y pos
 int health = 10; //player health
 int deathcount = 0; //number of deaths (WIP)
 
+
 //scenes
 Start menu = new Start(); //start menu
 Lvl1 lvl1 = new Lvl1(); //lvl1
-
+Lvl2 lvl2 = new Lvl2();
 void setup() {
 
   fullScreen(); //1280x800
-  frameRate(60); //enemy physics tied to fps
+  frameRate(30); //enemy physics tied to fps
 
   // Music calls
   minim = new Minim(this);
@@ -74,7 +76,7 @@ void setup() {
   ferrar = loadImage("ferrar.png");//enemysprite
   chainsaw = loadImage("Chainsaw.png");//Chainsawsprite
   violin = loadImage("Violin.png");//Violin Sprite
-
+finish = loadImage("finish.png");//Violin Sprite
   // Misc controls
   noStroke(); //removes outlines
   rectMode(CENTER);//Rect loads Centered
@@ -96,7 +98,9 @@ void draw() { //Runs once in program
   } else {
     //leave blank, No else statement needed.
   }
-
+ if (scene == 3) { //SCENE 3 (win)
+ lvl2.drawAt(0, 0, 1, 1);
+ }
   if (scene == 2) { //SCENE 2 (Lvl1)
 
 song.pause();
@@ -211,6 +215,7 @@ void keyPressed() { //KeyMappings for Player
   if (keyCode == ENTER) { //after death resets game
   //all variables are reset
   song.play();
+  level1.pause();
     scene = 1;
     redraw();
     enemyX=1400; 

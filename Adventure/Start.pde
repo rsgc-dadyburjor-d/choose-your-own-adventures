@@ -36,8 +36,7 @@ background(#8B0000);
     text("CHAINSAW", -4, displayHeight/3.2); 
     textSize(106);
     text("FARRAR", 990, displayHeight/2.4);
-     textSize(43);
-    text("KEITH", 900, displayHeight/2.7);
+
     
   
     
