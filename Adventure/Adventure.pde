@@ -78,47 +78,46 @@ void setup() {
 
 void draw() { //Runs once in program
 
-  if (scene == 1) { //SCENE 1 (MENU)
+  if (scene == 1) { //loads SCENE 1 (MENU) loads at start
     menu.drawAt(0, 0, 1, 1);
   }
 
-  if (key == 's' || key == 'S') { //Start Prompt
-    scene=2; //moves to level 1
+  if (key == 's' || key == 'S') { //Start Command
+    scene=2; //moves to Scene 2 (level 1)
   } else {
-    //leave blank
+    //leave blank, No else statement needed.
   }
 
   if (scene == 2) { //SCENE 2 (Lvl1)
 
 
     rectMode(CORNER); //rect draws from corner
-    lvl1.drawAt(0, 0, 1, 1);
+    lvl1.drawAt(0, 0, 1, 1);//lvl1 draw
 
 
 
     //review bullet code 
+    //Not currently Working
 
-    if (mousePressed) { //on mouse press fire bullet
+    //if (mousePressed) { //on mouse press fire bullet
 
-      rect(bulletX, bulletY, 5, 5);
-
-
-
-      bulletX+=10;
-
-      if (bulletX > 800) {
-        if (mousePressed) {
-          bulletX = X/10;
-          bulletY = Y/10;
-          rect(bulletX, bulletY, 5, 5);
-        }
-      }
-    }
+    //  rect(bulletX, bulletY, 5, 5);
 
 
 
+    //  bulletX+=10;
+
+    //  if (bulletX > 800) {
+    //    if (mousePressed) {
+    //      bulletX = X/10;
+    //      bulletY = Y/10;
+    //      rect(bulletX, bulletY, 5, 5);
+    //    }
+    //  }
+    //}
 
 
+//Enemy health/ Damage script
 
     if (Y < enemyY + 90 &&
       Y > enemyY &&
@@ -130,6 +129,7 @@ void draw() { //Runs once in program
       }
     }
 
+//unused code (ignore)
     //if (Y < enemyY + 90 &&
     //Y > enemyY &&
     //X < enemyX +90 &&
@@ -139,13 +139,14 @@ void draw() { //Runs once in program
     //  hp-=.01;
     //}
 
+//Player Health
     if (Y < enemyY + 180 &&
       Y > enemyY -180 &&
       X < enemyX + 180 &&
       X > enemyX -180) {
 
       if (health > 1) {
-        health-=11;
+        health-=11; //subtracts health on contact
       }
 
 
@@ -157,7 +158,9 @@ void draw() { //Runs once in program
       //rect(200,200,200,200);
     }
   }
-  // borders
+  
+  //player bounds
+  
   if (X > 1280) {
     X=1280;
   }
@@ -170,9 +173,11 @@ void draw() { //Runs once in program
   if (Y < 0) {
     Y=0;
   }
-  if (scene == 3) {
-    background(200);
-  }
+  
+  //scene 3 not currently used
+  //if (scene == 3) {
+   // background(200);
+  //}
 }
 
 
@@ -180,21 +185,21 @@ void keyPressed() { //KeyMappings for Player
 
 
 
-  if (keyCode == LEFT) {
+  if (keyCode == LEFT) { //Move left
     X+=-13;
   }
-  if (keyCode == RIGHT) {
+  if (keyCode == RIGHT) { //Move right
     X+=13;
   }
 
-
-  if (keyCode == UP) {
+  if (keyCode == UP) { //move up
     Y+=-13;
   }
-  if (keyCode == DOWN) {
+  if (keyCode == DOWN) { //move down
     Y+=13;
   }
-  if (keyCode == ENTER) {
+  if (keyCode == ENTER) { //after death resets game
+  //all variables are reset
     scene = 1;
     redraw();
     enemyX=1400; 
