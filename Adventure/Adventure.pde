@@ -20,7 +20,7 @@ PImage start;
 PImage player;
 PImage gordon;
 PImage ferrar;
-
+PImage violin;
 
 //variables
 
@@ -34,7 +34,7 @@ int dmg=10; //player damage
 int bulletX = X; //bullet X pos
 int bulletY = Y; //bullet Y pos
 int health = 10; //player health
-
+int deathcount = 0;
 
 Start menu = new Start();
 Lvl1 lvl1 = new Lvl1();
@@ -59,6 +59,7 @@ void setup() {
   gordon = loadImage("Gordon.png");//playersprite
   ferrar = loadImage("ferrar.png");//enemysprite
   chainsaw = loadImage("Chainsaw.png");//Chainsawsprite
+  violin = loadImage("Violin.png");//Chainsawsprite
   noStroke();
   rectMode(CENTER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered

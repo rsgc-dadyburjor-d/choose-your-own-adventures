@@ -19,7 +19,7 @@ saw.pause();
     text("Forgot to do your homework did you??",430,displayHeight/1.9);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
-   
+   text(deathcount,10,100);
  
  
     
@@ -28,10 +28,12 @@ saw.pause();
     
     
     if (health < 5) {
+     
       song.pause();
       death.play();
       death2.play();
       background(#E00707);
+      image(violin,800,700); 
       fill(255);
       textSize(112);
       text("Gents, What a bloodbath,",11,displayHeight/2);
@@ -44,7 +46,7 @@ saw.pause();
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);
     }
-
+    
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
       enemyX-=1;
