@@ -1,5 +1,5 @@
-class Win2 { 
-  void Win2(){
+class CS { 
+  void CS(){
   }
 
   //void drawAt will draw the robot at the specified location
@@ -8,20 +8,10 @@ class Win2 {
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     background(322);
-      win.play();
+      win.pause();
       level2.pause();
       fill(255);
-      textSize(132);
-      text("Gents, Well Done!",11,displayHeight/2);
-      textSize(112);
-      textFont(subtitle);
-      text("Ill be back in a jiffy!",24,displayHeight/1.8);
-      textSize(612);
-      fill(255,255,255,80);
-      text("SUCCESS",11,displayHeight/2+200);
-      textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04);
-      text("Next (+)",24,displayHeight/1.13);
+     image(ferrar,600 ,400); 
       level1.pause();
       fill(255);
       if (key == '+' || key == '=') { //Start Command
@@ -31,8 +21,8 @@ class Win2 {
     health=10;
     X=137;
     Y=356;
-    scene=6; //moves to Scene 2 (level 1)
-    level2.play();
+    //scene=6; //moves to Scene 2 (level 1)
+   
     
     
       }

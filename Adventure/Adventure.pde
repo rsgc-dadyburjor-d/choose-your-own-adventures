@@ -51,6 +51,10 @@ Lvl1 lvl1 = new Lvl1(); //lvl1
 Lvl2 lvl2 = new Lvl2();
 Lvl3 lvl3 = new Lvl3();
 Win2 win2 = new Win2();
+Lvl4 lvl4 = new Lvl4();
+Lvl5 lvl5 = new Lvl5();
+Win3 win3 = new Win3();
+CS cs = new CS();
 void setup() {
 
   fullScreen(); //1280x800
@@ -112,6 +116,16 @@ void draw() { //Runs once in program
  }
  if (scene == 5) { //SCENE 4 (lvl2)
  win2.drawAt(0, 0, 1, 1);
+ }
+  if (scene == 6) { //SCENE 4 (lvl2)
+ lvl4.drawAt(0, 0, 1, 1);
+  }
+  if (scene == 7) { //SCENE 4 (lvl2)
+ win3.drawAt(0, 0, 1, 1);
+ 
+ }
+ if (scene == 8) { //SCENE 4 (lvl2)
+ cs.drawAt(0, 0, 1, 1);
  
  }
   if (scene == 2) { //SCENE 2 (Lvl1)
