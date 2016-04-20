@@ -7,24 +7,26 @@ class CS {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(322);
+    bg += 12;
+    background(bg);
+   csm.play();
       win.pause();
       level2.pause();
       fill(255);
-     image(ferrar,600 ,400); 
+      pushMatrix();
+      rotate(.2*r/10);
+      imageMode(CENTER);
+      scale(6);
+     
+      r++;
+     image(ferrar,100 ,100); 
+     popMatrix();
       level1.pause();
       fill(255);
-      if (key == '+' || key == '=') { //Start Command
-      win.pause();
-      enemyX=1400; 
-    enemyY=800;
-    health=10;
-    X=137;
-    Y=356;
-    //scene=6; //moves to Scene 2 (level 1)
-   
+      text("What a shame gents... I guess we're done for",24,displayHeight/1.1);
+      
+     
     
     
       }
   }
-}

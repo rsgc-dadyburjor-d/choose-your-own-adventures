@@ -15,15 +15,16 @@ PImage photo;
 saw.pause();
 
             
-    background(100);
+    background(#0361FF);
     textSize(300);
     pushMatrix();
     scale(4);
     image(finish,320 ,0 );
     popMatrix();
+    fill(#03FFF0);
     text("ESCAPE",420,displayHeight/2);
     textSize(22);
-    text("Forgot to do your homework did you??",420,displayHeight/1.9);
+    text("Mindblowing stuff",420,displayHeight/1.9);
     text("level 2",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 

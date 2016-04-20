@@ -7,7 +7,7 @@ class Win3 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(2);
+    background(#FFF703);
       win.play();
       level2.pause();
       fill(255);
@@ -17,7 +17,7 @@ class Win3 {
       textFont(subtitle);
       text("Ill be back in a jiffy!",24,displayHeight/1.8);
       textSize(612);
-      fill(255,255,255,80);
+      fill(255,255,255,150);
       text("SUCCESS",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);

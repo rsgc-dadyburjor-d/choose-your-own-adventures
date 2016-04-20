@@ -16,6 +16,7 @@ AudioPlayer enemy; //enemy movement
 AudioPlayer level1; //enemy movement
 AudioPlayer level2; //enemy movement
 AudioPlayer win; //level pass
+AudioPlayer csm; //level pass
 //Custom Fonts
 PFont subtitle; //smaller thinner text
 PFont title; //bolded text
@@ -43,6 +44,8 @@ int bulletX = X; //bullet X pos
 int bulletY = Y; //bullet Y pos
 int health = 10; //player health
 int deathcount = 0; //number of deaths (WIP)
+int bg = 0; //number of deaths (WIP)
+int r = 0;
 
 
 //scenes
@@ -71,7 +74,7 @@ void setup() {
   level1 = minim.loadFile("Level1.mp3");
   level2 = minim.loadFile("Level2.mp3");
   win = minim.loadFile("Win.mp3");
-  
+  csm = minim.loadFile("cs.mp3");
   //plays music 
   //song.play();
 

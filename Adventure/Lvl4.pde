@@ -23,7 +23,7 @@ saw.pause();
     popMatrix();
     text("ESCAPE",420,displayHeight/2);
     textSize(22);
-    text("Forgot to do your homework did you??",420,displayHeight/1.9);
+    text("TRIGGER WARNING",420,displayHeight/1.9);
     text("level 3",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
