@@ -26,17 +26,17 @@ background(#8B0000);
     text("Feeling Triggered ? (ESC)", 20, displayHeight/1.02);
     textFont(title);
     textSize(90);
-    text("''Feeling Jolly Great!''", 430, displayHeight/1.05); 
+    text("''Feeling Jolly Great!''", 540, displayHeight/1.05); 
      image(gordon, 137, 356);
      image(ferrar,1300 ,500 ); 
      
     fill(255);
-    textSize(255);
-    text("CHAINSAW", -14, displayHeight/3.8); 
+    textSize(380);
+    text("CHAINSAW", -4, displayHeight/3.2); 
     textSize(106);
-    text("FARRAR", 876, displayHeight/2.7);
+    text("FARRAR", 990, displayHeight/2.4);
      textSize(43);
-    text("KEITH", 755, displayHeight/3.15);
+    text("KEITH", 900, displayHeight/2.7);
     
   
     
