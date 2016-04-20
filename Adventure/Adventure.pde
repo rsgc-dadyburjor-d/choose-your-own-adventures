@@ -1,3 +1,4 @@
+//audio Libraries
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -5,14 +6,17 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+//audio Tracks
 Minim minim;
-AudioPlayer song;
- AudioPlayer saw;
- AudioPlayer death;
- AudioPlayer death2;
+AudioPlayer song; //game music
+AudioPlayer saw; //WIP
+AudioPlayer death; //death scream
+AudioPlayer death2; //death music
 
-PFont subtitle;
-PFont title;
+//Custom Fonts
+PFont subtitle; //smaller thinner text
+PFont title; //bolded text
+
 //Images
 PImage chainsaw;
 PImage cursor;
@@ -24,7 +28,7 @@ PImage violin;
 
 //variables
 
-int scene = 1; //Scene
+int scene = 1; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
 int enemyX=1400; //enemy X pos
@@ -34,41 +38,45 @@ int dmg=10; //player damage
 int bulletX = X; //bullet X pos
 int bulletY = Y; //bullet Y pos
 int health = 10; //player health
-int deathcount = 0;
+int deathcount = 0; //number of deaths (WIP)
 
-Start menu = new Start();
-Lvl1 lvl1 = new Lvl1();
+//scenes
+Start menu = new Start(); //start menu
+Lvl1 lvl1 = new Lvl1(); //lvl1
 
 void setup() {
 
-  fullScreen();
-  frameRate(60);
-  
- minim = new Minim(this);
- 
-  
+  fullScreen(); //1280x800
+  frameRate(60); //enemy physics tied to fps
+
+  // Music calls
+  minim = new Minim(this);
+
   song = minim.loadFile("Music.mp3");
   saw = minim.loadFile("Chainsaw.mp3");
   death = minim.loadFile("Scream.mp3");
   death2 = minim.loadFile("death.mp3");
   song.play();
-  
-  title = createFont("Bold.ttf", 32);
-  subtitle = createFont("Roboto.ttf", 32);
-  start = loadImage("Adventure.jpg");//menusprite
+
+  // font calls
+  title = createFont("Bold.ttf", 32); //thick font
+  subtitle = createFont("Roboto.ttf", 32); //regular font
+
+  //Image Loads
+  start = loadImage("Adventure.jpg");//menusprite not used
   gordon = loadImage("Gordon.png");//playersprite
   ferrar = loadImage("ferrar.png");//enemysprite
   chainsaw = loadImage("Chainsaw.png");//Chainsawsprite
-  violin = loadImage("Violin.png");//Chainsawsprite
-  noStroke();
+  violin = loadImage("Violin.png");//Violin Sprite
+
+  // Misc controls
+  noStroke(); //removes outlines
   rectMode(CENTER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
-  
-  
 }
 
-void draw() { //Runs
+void draw() { //Runs once in program
 
   if (scene == 1) { //SCENE 1 (MENU)
     menu.drawAt(0, 0, 1, 1);
@@ -76,21 +84,19 @@ void draw() { //Runs
 
   if (key == 's' || key == 'S') { //Start Prompt
     scene=2; //moves to level 1
-    
   } else {
     //leave blank
-   
   }
 
   if (scene == 2) { //SCENE 2 (Lvl1)
-  
-  
-rectMode(CORNER); //rect draws from corner
+
+
+    rectMode(CORNER); //rect draws from corner
     lvl1.drawAt(0, 0, 1, 1);
-    
 
 
-//review bullet code 
+
+    //review bullet code 
 
     if (mousePressed) { //on mouse press fire bullet
 
@@ -110,8 +116,8 @@ rectMode(CORNER); //rect draws from corner
     }
 
 
- 
-    
+
+
 
 
     if (Y < enemyY + 90 &&
@@ -151,19 +157,19 @@ rectMode(CORNER); //rect draws from corner
       //rect(200,200,200,200);
     }
   }
-// borders
-if (X > 1280){
-  X=1280;
-}
-if (X < 0){
-  X=1;
-}
-if (Y > 800){
-  Y=800;
-}
-if (Y < 0){
-  Y=0;
-}
+  // borders
+  if (X > 1280) {
+    X=1280;
+  }
+  if (X < 0) {
+    X=1;
+  }
+  if (Y > 800) {
+    Y=800;
+  }
+  if (Y < 0) {
+    Y=0;
+  }
   if (scene == 3) {
     background(200);
   }
@@ -176,27 +182,25 @@ void keyPressed() { //KeyMappings for Player
 
   if (keyCode == LEFT) {
     X+=-13;
-   
   }
   if (keyCode == RIGHT) {
     X+=13;
-  
   }
 
 
   if (keyCode == UP) {
     Y+=-13;
-   
   }
   if (keyCode == DOWN) {
     Y+=13;
   }
-    if (keyCode == ENTER) {
+  if (keyCode == ENTER) {
     scene = 1;
     redraw();
     enemyX=1400; 
     enemyY=800;
-   health=10;
-   
+    health=10;
+    X=137;
+    Y=356;
   }
 }
