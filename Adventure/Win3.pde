@@ -7,15 +7,16 @@ class Win3 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(#FFF703);
+    background(#FF4A03);
       win.play();
       level3.pause();
       fill(255);
       textSize(132);
-      text("Gents, Well Done!",11,displayHeight/2);
+      text("Gents, This is Bad!",11,displayHeight/2);
       textSize(112);
       textFont(subtitle);
-      text("Ill be back in a jiffy!",24,displayHeight/1.8);
+      text("Level 3 Complete!",24,displayHeight/1.6);
+      text("What a Waste!",24,displayHeight/1.8);
       textSize(612);
       fill(255,255,255,150);
       text("SUCCESS",11,displayHeight/2+200);
@@ -24,6 +25,10 @@ class Win3 {
       text("Next (+)",24,displayHeight/1.13);
       level1.pause();
       fill(255);
+      pushMatrix();
+       image(success,1100,600); 
+      popMatrix();
+      
       if (key == '+' || key == '=') { //Start Command
       win.pause();
       enemyX=1400; 

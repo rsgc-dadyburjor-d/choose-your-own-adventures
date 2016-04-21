@@ -24,7 +24,7 @@ saw.pause();
     text("RUN",420,displayHeight/2);
     textSize(22);
     text("You Fool! - You Fool! - You Fool! - You Fool!",420,displayHeight/1.9);
-    text("level 1",420,displayHeight/1.8);
+    text("Level 1",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -41,7 +41,7 @@ saw.pause();
     fill(#710101);
     
     
-    if (health < 5) {
+    if (health < 5) { //death screen
       
       
   

@@ -15,7 +15,7 @@ PImage photo;
 saw.pause();
 
             
-    background(10);
+    background(#FF4A03);
     textSize(300);
     pushMatrix();
     scale(4);
@@ -44,7 +44,7 @@ saw.pause();
     if (health < 5) {
       
       
-  level2.pause();
+  level3.pause();
        
       song.pause();
       death.play();

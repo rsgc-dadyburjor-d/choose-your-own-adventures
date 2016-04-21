@@ -7,15 +7,17 @@ class Lvl2 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(#FFA600);
+    background(30);
       win.play();
       level2.pause();
       fill(255);
+      
       textSize(132);
       text("Gents, Well Done!",11,displayHeight/2);
       textSize(112);
       textFont(subtitle);
-      text("Ill be back in a jiffy!",24,displayHeight/1.8);
+      text("Level 1 Complete!",24,displayHeight/1.6);
+      text("Ill be back in two shakes of a lamb's tail!",24,displayHeight/1.8);
       textSize(612);
       fill(255,255,255,80);
       text("SUCCESS",11,displayHeight/2+200);
@@ -24,6 +26,10 @@ class Lvl2 {
       text("Next (+)",24,displayHeight/1.13);
       level1.pause();
       fill(255);
+      pushMatrix();
+       image(success,1100,600); 
+      popMatrix();
+      
       if (key == '+' || key == '=') { //Start Command
       win.pause();
       enemyX=1400; 

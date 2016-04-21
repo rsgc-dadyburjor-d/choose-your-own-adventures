@@ -31,6 +31,7 @@ PImage gordon;
 PImage ferrar;
 PImage violin;
 PImage finish;
+PImage success;
 
 //variables
 
@@ -90,7 +91,9 @@ void setup() {
   ferrar = loadImage("ferrar.png");//enemysprite
   chainsaw = loadImage("Chainsaw.png");//Chainsawsprite
   violin = loadImage("Violin.png");//Violin Sprite
-finish = loadImage("finish.png");//Violin Sprite
+  finish = loadImage("finish.png");//finish line Sprite
+  success = loadImage("successful.png");//success sprite
+  
   // Misc controls
   noStroke(); //removes outlines
   rectMode(CENTER);//Rect loads Centered
@@ -113,29 +116,27 @@ void draw() { //Runs once in program
   } else {
     //leave blank, No else statement needed.
   }
- if (scene == 3) { //SCENE 3 (win)
- lvl2.drawAt(0, 0, 1, 1);
- }
- if (scene == 4) { //SCENE 4 (lvl2)
- lvl3.drawAt(0, 0, 1, 1);
- }
- if (scene == 5) { //SCENE 4 (lvl2)
- win2.drawAt(0, 0, 1, 1);
- }
+  if (scene == 3) { //SCENE 3 (win)
+    lvl2.drawAt(0, 0, 1, 1);
+  }
+  if (scene == 4) { //SCENE 4 (lvl2)
+    lvl3.drawAt(0, 0, 1, 1);
+  }
+  if (scene == 5) { //SCENE 4 (lvl2)
+    win2.drawAt(0, 0, 1, 1);
+  }
   if (scene == 6) { //SCENE 4 (lvl2)
- lvl4.drawAt(0, 0, 1, 1);
+    lvl4.drawAt(0, 0, 1, 1);
   }
   if (scene == 7) { //SCENE 4 (lvl2)
- win3.drawAt(0, 0, 1, 1);
- 
- }
- if (scene == 8) { //SCENE 4 (lvl2)
- cs.drawAt(0, 0, 1, 1);
- 
- }
+    win3.drawAt(0, 0, 1, 1);
+  }
+  if (scene == 8) { //SCENE 4 (lvl2)
+    cs.drawAt(0, 0, 1, 1);
+  }
   if (scene == 2) { //SCENE 2 (Lvl1)
 
-song.pause();
+    song.pause();
 
     rectMode(CORNER); //rect draws from corner
     lvl1.drawAt(0, 0, 1, 1);//lvl1 draw
@@ -163,7 +164,7 @@ song.pause();
     //}
 
 
-//Enemy health/ Damage script
+    //Enemy health/ Damage script
 
     if (Y < enemyY + 90 &&
       Y > enemyY &&
@@ -175,7 +176,7 @@ song.pause();
       }
     }
 
-//unused code (ignore)
+    //unused code (ignore)
     //if (Y < enemyY + 90 &&
     //Y > enemyY &&
     //X < enemyX +90 &&
@@ -185,7 +186,7 @@ song.pause();
     //  hp-=.01;
     //}
 
-//Player Health
+    //Player Health
     if (Y < enemyY + 180 &&
       Y > enemyY -180 &&
       X < enemyX + 180 &&
@@ -204,9 +205,9 @@ song.pause();
       //rect(200,200,200,200);
     }
   }
-  
+
   //player bounds
-  
+
   if (X > 1280) {
     X=1280;
   }
@@ -219,10 +220,10 @@ song.pause();
   if (Y < 0) {
     Y=0;
   }
-  
+
   //scene 3 not currently used
   //if (scene == 3) {
-   // background(200);
+  // background(200);
   //}
 }
 
@@ -245,10 +246,10 @@ void keyPressed() { //KeyMappings for Player
     Y+=30;
   }
   if (keyCode == ENTER) { //after death resets game
-  //all variables are reset
-  song.play();
-   csm.pause();
-  level1.pause();
+    //all variables are reset
+    song.play();
+    csm.pause();
+    level1.pause();
     scene = 1;
     redraw();
     enemyX=1400; 
