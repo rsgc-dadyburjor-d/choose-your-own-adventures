@@ -19,7 +19,7 @@ class Win3 {
       text("What a Waste!",24,displayHeight/1.8);
       textSize(612);
       fill(255,255,255,150);
-      text("SUCCESS",11,displayHeight/2+200);
+      text("WINNER",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);
       text("Next (+)",24,displayHeight/1.13);

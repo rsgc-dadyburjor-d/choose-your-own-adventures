@@ -19,7 +19,7 @@ class Win2 {
       text("Hold on a Wee While Gents!",24,displayHeight/1.8);
       textSize(612);
       fill(255,255,255,150);
-      text("SUCCESS",11,displayHeight/2+200);
+      text("VICTORY",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);
       text("Next (+)",24,displayHeight/1.13);

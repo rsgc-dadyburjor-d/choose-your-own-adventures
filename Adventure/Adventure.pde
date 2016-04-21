@@ -102,7 +102,7 @@ void setup() {
 }
 
 void draw() { //Runs once in program
-
+noCursor();
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
     menu.drawAt(0, 0, 1, 1);
     death2.pause();

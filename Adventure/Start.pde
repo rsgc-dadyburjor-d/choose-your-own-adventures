@@ -25,6 +25,7 @@ background(#8B0000);
    
     text("Let's get to it Gents (S)", 20, displayHeight/1.05); 
     text("Feeling Triggered ? (ESC)", 20, displayHeight/1.02);
+    text("Revision 67", 1150, displayHeight/1.02);
     textFont(title);
     textSize(90);
     text("''Feeling Jolly Great!''", 540, displayHeight/1.05); 
