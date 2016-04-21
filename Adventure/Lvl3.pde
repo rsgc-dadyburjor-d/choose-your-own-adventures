@@ -24,7 +24,7 @@ saw.pause();
     fill(#03FFF0);
     text("ESCAPE",420,displayHeight/2);
     textSize(22);
-    text("Mindblowing stuff",420,displayHeight/1.9);
+    text("Mindblowing stuff - Mindblowing stuff - Mindblowing stuff - Mindblowing stuff",420,displayHeight/1.9);
     text("level 2",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 

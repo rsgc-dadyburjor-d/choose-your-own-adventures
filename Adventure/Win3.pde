@@ -9,7 +9,7 @@ class Win3 {
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     background(#FFF703);
       win.play();
-      level2.pause();
+      level3.pause();
       fill(255);
       textSize(132);
       text("Gents, Well Done!",11,displayHeight/2);

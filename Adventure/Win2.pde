@@ -32,7 +32,8 @@ class Win2 {
     X=137;
     Y=356;
     scene=6; //moves to Scene 2 (level 1)
-    level2.play();
+    level2.pause();
+    level3.play();
     
     
       }

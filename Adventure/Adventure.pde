@@ -15,6 +15,7 @@ AudioPlayer death2; //death music
 AudioPlayer enemy; //enemy movement
 AudioPlayer level1; //enemy movement
 AudioPlayer level2; //enemy movement
+AudioPlayer level3; //enemy movement
 AudioPlayer win; //level pass
 AudioPlayer csm; //level pass
 //Custom Fonts
@@ -73,6 +74,7 @@ void setup() {
   enemy = minim.loadFile("Enemy.mp3");
   level1 = minim.loadFile("Level1.mp3");
   level2 = minim.loadFile("Level2.mp3");
+  level3 = minim.loadFile("Level3.mp3");
   win = minim.loadFile("Win.mp3");
   csm = minim.loadFile("cs.mp3");
   //plays music 
@@ -245,6 +247,7 @@ void keyPressed() { //KeyMappings for Player
   if (keyCode == ENTER) { //after death resets game
   //all variables are reset
   song.play();
+   csm.pause();
   level1.pause();
     scene = 1;
     redraw();
