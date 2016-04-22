@@ -63,9 +63,9 @@ Win3 win3 = new Win3();
 CS cs = new CS();
 void setup() {
 
-  fullScreen(P3D); //1280x800
-  frameRate(30); //enemy physics tied to fps
-  smooth();
+  fullScreen(JAVA2D); //1280x800
+  frameRate(24); //enemy physics tied to fps
+  
 
   // Music calls
   minim = new Minim(this);

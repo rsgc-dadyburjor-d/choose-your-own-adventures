@@ -14,7 +14,7 @@ class CS {
       level2.pause();
       fill(255);
       pushMatrix();
-      rotate(.2*r/10); //rotates head
+      rotate(.2/r); //rotates head
       imageMode(CENTER);
       scale(4);
      
