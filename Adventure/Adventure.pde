@@ -63,8 +63,9 @@ Win3 win3 = new Win3();
 CS cs = new CS();
 void setup() {
 
-  fullScreen(); //1280x800
-  frameRate(60); //enemy physics tied to fps
+  fullScreen(P3D); //1280x800
+  frameRate(30); //enemy physics tied to fps
+  smooth();
 
   // Music calls
   minim = new Minim(this);
@@ -104,6 +105,8 @@ void setup() {
 
 void draw() { //Runs once in program
 noCursor();
+ fill(255);
+  
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
     menu.drawAt(0, 0, 1, 1);
     death2.pause();
@@ -135,6 +138,7 @@ noCursor();
   if (scene == 8) { //SCENE 4 (lvl2)
     cs.drawAt(0, 0, 1, 1);
   }
+  
   if (scene == 2) { //SCENE 2 (Lvl1)
 
     song.pause();
@@ -226,6 +230,10 @@ noCursor();
   //if (scene == 3) {
   // background(200);
   //}
+  pushMatrix();
+  textSize(20);
+  text(frameRate,1150,20);
+  popMatrix();
 }
 
 
