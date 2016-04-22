@@ -7,7 +7,7 @@ class Lvl2 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(30);
+    background(#A600AF);
       win.play();
       level2.pause();
       fill(255);

@@ -16,7 +16,7 @@ class CS {
       pushMatrix();
       rotate(.2*r/10); //rotates head
       imageMode(CENTER);
-      scale(6);
+      scale(4);
      
       r++;
      image(ferrar,100 ,100); 

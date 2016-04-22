@@ -15,7 +15,7 @@ PImage photo;
 saw.pause();
 
             
-    background(#FF4A03);
+    background(200);
     textSize(300);
     pushMatrix();
     scale(4);
