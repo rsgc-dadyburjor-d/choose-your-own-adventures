@@ -84,7 +84,7 @@ void setup() {
   //song.play();
 
   // font calls
-  title = createFont("Bold.ttf", 32); //thick font
+  title = createFont("Bold.ttf", 100); //thick font
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
