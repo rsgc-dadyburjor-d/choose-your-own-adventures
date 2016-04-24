@@ -18,10 +18,10 @@ class Lvl2 {
       text("Gents, Well Done!",11,displayHeight/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 1 Complete!",24,displayHeight/1.6);
+      text("Level 1 Complete!",24,displayHeight/9);
       text("Ill be back in two shakes of a lamb's tail!",24,displayHeight/1.8);
       textSize(612);
-      fill(255,255,255,80);
+      fill(255,255,255,40);
       text("SUCCESS",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);

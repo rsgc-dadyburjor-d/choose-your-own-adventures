@@ -17,10 +17,10 @@ class Win3 {
       text("Gents, This is Bad!",11,displayHeight/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 3 Complete!",24,displayHeight/1.6);
+      text("Level 3 Complete!",24,displayHeight/1.9);
       text("What a Waste!",24,displayHeight/1.8);
       textSize(612);
-      fill(255,255,255,60);
+      fill(255,255,255,40);
       text("WINNER",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);

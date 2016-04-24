@@ -23,7 +23,7 @@ saw.pause();
     popMatrix();
     text("RUN",420,displayHeight/2);
     textSize(22);
-    text("You Fool! - You Fool! - You Fool! - You Fool!",420,displayHeight/1.9);
+    text("USE THE ARROW KEYS",420,displayHeight/1.9);
     text("Level 1",420,displayHeight/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 

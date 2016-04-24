@@ -110,19 +110,21 @@ void draw() { //Runs once in program
 noCursor();
  fill(255);
   
-  if (scene == 0) { //loads SCENE 1 (MENU) loads at start
+  if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
-    fill(0);
+    fill(#0040FA);
     textFont(title);
     textSize(300);
     text("8-BIT",displayWidth/2,displayHeight/2.3);
     textSize(50);
-    text("See The Future",displayWidth/2,displayHeight/2);
+    fill(0);
+    text("beep boop beep",displayWidth/2,displayHeight/2);
      image(joystick,displayWidth/2 ,displayHeight/1.2 ); 
     startup.play();
     if (millis() - timer >= 5000) {
     scene=1;
     startup.close();
+    textAlign(CORNER);
     }
   }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
@@ -134,6 +136,7 @@ noCursor();
 
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
+    textAlign(CORNER);
     level1.play();
   } else {
     //leave blank, No else statement needed.
@@ -251,7 +254,7 @@ noCursor();
   pushMatrix();
   textSize(20);
   fill(255);
-  text(frameRate,1150,20);
+  text(frameRate,1200,20);
   popMatrix();
 }
 
