@@ -15,10 +15,7 @@ PImage photo;
 saw.pause();
 
             
-    fill(20, 60); // semi-transparent white
-  rect(0, 0, width, height);
- 
-  fill (255);
+    background(30);
     textSize(300);
     pushMatrix();
     scale(4);
@@ -77,6 +74,7 @@ saw.pause();
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
 <<<<<<< HEAD
+<<<<<<< HEAD
       enemyX-=3;
      enemy.play();
     } 
@@ -90,6 +88,21 @@ saw.pause();
     }
     if (Y-20 > enemyY){
       enemyY+=3;
+=======
+      enemyX-=1;
+     enemy.play();
+    } 
+    if (X-30 > enemyX){
+      enemyX+=1;
+      
+    }
+    if (Y-30 < enemyY){
+      enemyY-=1;
+      
+    }
+    if (Y-20 > enemyY){
+      enemyY+=1;
+>>>>>>> parent of 4f01cef... Made game more cinematic
 =======
       enemyX-=1;
      enemy.play();

@@ -15,8 +15,7 @@ PImage photo;
 saw.pause();
 
             
-    fill(20, 60); // semi-transparent white
-  rect(0, 0, width, height);
+    background(100);
     textSize(300);
     pushMatrix();
     scale(4);
