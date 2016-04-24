@@ -20,7 +20,7 @@ class Win3 {
       text("Level 3 Complete!",24,displayHeight/1.6);
       text("What a Waste!",24,displayHeight/1.8);
       textSize(612);
-      fill(255,255,255,80);
+      fill(255,255,255,60);
       text("WINNER",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);
