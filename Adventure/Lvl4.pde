@@ -73,25 +73,38 @@ saw.pause();
     
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
-      enemyX-=6;
+      enemyX-=1;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=6;
+      enemyX+=1;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=6;
+      enemyY-=1;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=6;
+      enemyY+=1;
       
     }
     
     //finish
-    
-    
+    if (X-30 < enemyX){
+      enemyX-=1;
+     enemy.play();
+    } 
+    if (X-30 > enemyX){
+      enemyX+=1;
+      
+    }
+    if (Y-30 < enemyY){
+      enemyY-=1;
+      
+    }
+    if (Y-20 > enemyY){
+      enemyY+=1;
+    }
       if (X-30 > 1200){
       scene=7;
 }
