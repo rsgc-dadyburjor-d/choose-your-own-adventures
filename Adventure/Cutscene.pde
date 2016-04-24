@@ -8,7 +8,9 @@ class CS {
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     bg += 12;
-    background(bg);
+    fill(bg, 90); // semi-transparent white
+  rect(0, 0, width, height);
+    
    csm.play();
       win.pause();
       level2.pause();

@@ -8,6 +8,7 @@ import ddf.minim.ugens.*;
 
 //audio Tracks
 Minim minim;
+AudioPlayer startup; //level pass
 AudioPlayer song; //menu music
 AudioPlayer saw; //WIP
 AudioPlayer death; //death scream
@@ -33,6 +34,7 @@ PImage ferrar;
 PImage violin;
 PImage finish;
 PImage success;
+PImage joystick;
 
 //variables
 int timer;
@@ -69,7 +71,7 @@ void setup() {
 
   // Music calls
   minim = new Minim(this);
-
+startup = minim.loadFile("startup.mp3");
   song = minim.loadFile("Music.mp3");
   saw = minim.loadFile("Chainsaw.mp3");
   death = minim.loadFile("Scream.mp3");
@@ -88,6 +90,7 @@ void setup() {
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
+   joystick = loadImage("joystick.png");//menusprite not used
   start = loadImage("Adventure.jpg");//menusprite not used
   gordon = loadImage("Gordon.png");//playersprite
   ferrar = loadImage("ferrar.png");//enemysprite
@@ -112,11 +115,14 @@ noCursor();
     fill(0);
     textFont(title);
     textSize(300);
-    text("8-BIT",displayWidth/2,displayHeight/2);
+    text("8-BIT",displayWidth/2,displayHeight/2.3);
     textSize(50);
-    text("See The Future",displayWidth/2,displayHeight/1.5);
-    if (millis() - timer >= 4000) {
+    text("See The Future",displayWidth/2,displayHeight/2);
+     image(joystick,displayWidth/2 ,displayHeight/1.2 ); 
+    startup.play();
+    if (millis() - timer >= 5000) {
     scene=1;
+    startup.close();
     }
   }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start

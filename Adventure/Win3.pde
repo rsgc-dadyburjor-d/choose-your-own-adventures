@@ -7,7 +7,9 @@ class Win3 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    background(#FF4A03);
+   fill(#FF4A03, 30); // semi-transparent white
+  rect(0, 0, width, height);
+    
       win.play();
       level3.pause();
       fill(255);
@@ -18,7 +20,7 @@ class Win3 {
       text("Level 3 Complete!",24,displayHeight/1.6);
       text("What a Waste!",24,displayHeight/1.8);
       textSize(612);
-      fill(255,255,255,150);
+      fill(255,255,255,80);
       text("WINNER",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);
