@@ -15,20 +15,18 @@ class CS {
       win.pause();
       level2.pause();
       fill(255);
-      pushMatrix();
-      rotate(.2/r); //rotates head
-      imageMode(CENTER);
-      scale(4);
-     
-      r++;
-     image(ferrar,100 ,100); 
-     popMatrix();
-      level1.pause();
-      fill(255);
-      text("What a shame gents... I guess we're done for",24,displayHeight/1.1);
       
      
-    
+     textSize(612);
+      fill(255,255,255,40);
+      text("SUCCESS",11,displayHeight/2+200);
+      
+    textSize(100);
+      fill(0);
+      text(10000 - time,600,displayHeight/1.1);
+      text("Final Score",11,displayHeight/1.1);
+      textSize(30);
+      text("Menu (Enter)",24,displayHeight/1.03);
     
       }
   }

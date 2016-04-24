@@ -7,7 +7,7 @@ class Win2 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-    fill(#0040FA, 30); // semi-transparent white
+    fill(#0040FA, 60); // semi-transparent white
   rect(0, 0, width, height);
       win.play();
       level2.pause();
@@ -31,6 +31,7 @@ class Win2 {
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
+       winner.close();
       win.pause();
       enemyX=1400; 
     enemyY=800;
@@ -40,7 +41,7 @@ class Win2 {
     scene=6; //moves to Scene 2 (level 1)
     level2.pause();
     level3.play();
-    
+    winner = minim.loadFile("winner.mp3");
     
       }
   }

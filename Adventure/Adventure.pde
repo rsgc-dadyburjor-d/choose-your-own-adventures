@@ -19,6 +19,7 @@ AudioPlayer level2; //enemy movement
 AudioPlayer level3; //enemy movement
 AudioPlayer win; //level pass
 AudioPlayer csm; //level pass
+AudioPlayer winner; //level pass
 
 //Custom Fonts
 PFont subtitle; //smaller thinner text
@@ -51,6 +52,7 @@ int health = 10; //player health
 int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
+int time=0;
 
 
 //scenes
@@ -82,6 +84,7 @@ startup = minim.loadFile("startup.mp3");
   level3 = minim.loadFile("Level3.mp3");
   win = minim.loadFile("Win.mp3");
   csm = minim.loadFile("cs.mp3");
+  winner = minim.loadFile("winner.mp3");
   //plays music 
   //song.play();
 
@@ -132,10 +135,12 @@ noCursor();
     death2.pause();
     song.play();
     win.pause();
+   
   }
 
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
+     death = minim.loadFile("Scream.mp3");
     textAlign(CORNER);
     level1.play();
   } else {
@@ -256,6 +261,13 @@ noCursor();
   fill(255);
   text(frameRate,1200,20);
   popMatrix();
+  
+  pushMatrix();
+  textSize(20);
+  fill(255);
+  text("SCORE",1150,100);
+  text(10000 - time,1200,100);
+  popMatrix();
 }
 
 
@@ -288,5 +300,7 @@ void keyPressed() { //KeyMappings for Player
     health=10;
     X=137;
     Y=356;
+    time=0;
+    death.close();
   }
 }

@@ -40,7 +40,9 @@ saw.pause();
     textSize(226);
     fill(#710101);
     
-    
+    if (health > 5) {
+        time++;
+      }
     if (health < 5) {
       
       
@@ -73,19 +75,19 @@ saw.pause();
     
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
-      enemyX-=6;
+      enemyX-=4;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=6;
+      enemyX+=4;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=6;
+      enemyY-=4;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=6;
+      enemyY+=4;
       
     }
     
@@ -93,6 +95,7 @@ saw.pause();
     
       if (X-30 > 1200){
       scene=7;
+       winner.play();
 }
   if (Y < enemyY + 180 &&
       Y > enemyY -180 &&

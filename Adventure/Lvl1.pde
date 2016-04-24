@@ -28,7 +28,7 @@ saw.pause();
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
-    
+    time++;
    
    
 
@@ -40,7 +40,9 @@ saw.pause();
     textSize(226);
     fill(#710101);
     
-    
+      if (health > 5) {
+        time++;
+      }
     if (health < 5) { //death screen
       
       
@@ -93,6 +95,7 @@ saw.pause();
     
       if (X-30 > 1200){
       scene=3;
+      winner.play();
 }
   
 
