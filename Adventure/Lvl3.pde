@@ -30,7 +30,7 @@ saw.pause();
     image(ferrar,enemyX ,enemyY ); 
     
     
-   text(deathcount,10,100);
+  
    
 
   

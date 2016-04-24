@@ -11,8 +11,10 @@ class Start {
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     image(start, 0, 0);
     start.resize(displayWidth+200, displayHeight+200);
-    
-background(#8B0000);
+     
+     fill(#8B0000, 50); // semi-transparent white
+  rect(0, 0, displayWidth*2, height*2);
+
     
     image(chainsaw, displayWidth/2.5, displayHeight/2);
    

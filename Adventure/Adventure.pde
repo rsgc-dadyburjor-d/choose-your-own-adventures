@@ -35,8 +35,8 @@ PImage finish;
 PImage success;
 
 //variables
-
-int scene = 1; //Scene position
+int timer;
+int scene = 0; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
 int enemyX=1400; //enemy X pos
@@ -107,6 +107,18 @@ void draw() { //Runs once in program
 noCursor();
  fill(255);
   
+  if (scene == 0) { //loads SCENE 1 (MENU) loads at start
+    background(255);
+    fill(0);
+    textFont(title);
+    textSize(300);
+    text("8-BIT",displayWidth/2,displayHeight/2);
+    textSize(50);
+    text("See The Future",displayWidth/2,displayHeight/1.5);
+    if (millis() - timer >= 4000) {
+    scene=1;
+    }
+  }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
     menu.drawAt(0, 0, 1, 1);
     death2.pause();
@@ -232,6 +244,7 @@ noCursor();
   //}
   pushMatrix();
   textSize(20);
+  fill(255);
   text(frameRate,1150,20);
   popMatrix();
 }
