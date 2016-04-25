@@ -6,6 +6,8 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+
+  
 //audio Tracks
 Minim minim;
 AudioPlayer startup; //level pass
@@ -24,6 +26,8 @@ AudioPlayer winner; //level pass
 //Custom Fonts
 PFont subtitle; //smaller thinner text
 PFont title; //bolded text
+
+
 
 //Images
 PImage chainsaw;
@@ -53,7 +57,7 @@ int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
-
+int score= 10000 - time;
 
 //scenes
 Start menu = new Start(); //start menu
@@ -256,17 +260,13 @@ noCursor();
   //if (scene == 3) {
   // background(200);
   //}
-  pushMatrix();
-  textSize(20);
-  fill(255);
-  text(frameRate,1200,20);
-  popMatrix();
+ 
   
   pushMatrix();
   textSize(20);
   fill(255);
-  text("SCORE",1150,100);
-  text(10000 - time,1200,100);
+  text("SCORE",1150,20);
+  text(10000 - time,1200,20);
   popMatrix();
 }
 
