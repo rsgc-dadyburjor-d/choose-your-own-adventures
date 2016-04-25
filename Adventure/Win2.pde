@@ -8,7 +8,7 @@ class Win2 {
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
     fill(#0040FA, 60); // semi-transparent white
-  rect(0, 0, width, height);
+  rect(0, 0, 6000, 6000);
       win.play();
       level2.pause();
       fill(255);

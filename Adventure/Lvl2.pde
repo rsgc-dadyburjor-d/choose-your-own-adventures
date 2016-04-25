@@ -7,8 +7,8 @@ class Lvl2 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-   fill(#090093, 30); // semi-transparent white
-  rect(0, 0, width, height);
+   fill(#090093, 60); // semi-transparent white
+  rect(0, 0, 6000, 6000);
   
       win.play();
       level2.pause();
@@ -21,7 +21,7 @@ class Lvl2 {
       text("Level 1 Complete!",24,displayHeight/9);
       text("Ill be back in two shakes of a lamb's tail!",24,displayHeight/1.8);
       textSize(612);
-      fill(255,255,255,40);
+      fill(255,255,255,30);
       text("SUCCESS",11,displayHeight/2+200);
       textSize(50);
       text("Exit (ESC)",24,displayHeight/1.04);

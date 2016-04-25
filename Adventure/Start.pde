@@ -12,7 +12,7 @@ class Start {
     
      
      fill(#8B0000, 120); // semi-transparent white
-  rect(0, 0, displayWidth*2, height*2);
+  rect(0, 0, 6000, 6000);
 
     
     image(chainsaw, displayWidth/2, displayHeight/2);
@@ -23,7 +23,7 @@ class Start {
     fill(20,20,20,100);
     textFont(subtitle);
     textSize(70);
-   
+   textFont(title);
     text("Let's get to it Gents (S)", displayWidth/2, displayHeight/1.07);
     textSize(20);
     text("Feeling Triggered ? (ESC)", displayWidth/2, displayHeight/1.02);
@@ -31,7 +31,7 @@ class Start {
     
    
      
-     
+     textFont(title);
     
     fill(255);
     textSize(250);

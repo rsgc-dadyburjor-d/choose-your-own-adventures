@@ -27,6 +27,7 @@ AudioPlayer winner; //level pass
 PFont subtitle; //smaller thinner text
 PFont title; //bolded text
 
+PrintWriter output;
 
 
 //Images
@@ -58,6 +59,8 @@ int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
 int score= 10000 - time;
+int preset = 1280;
+float scale= displayWidth / 1280;
 
 //scenes
 Start menu = new Start(); //start menu
@@ -70,10 +73,12 @@ Lvl5 lvl5 = new Lvl5();
 Win3 win3 = new Win3();
 CS cs = new CS();
 void setup() {
-
-  fullScreen(JAVA2D); //1280x800
-  frameRate(24); //enemy physics tied to fps
+  fullScreen(P2D);
   
+  
+  //fullScreen(JAVA2D); //1280x800
+  frameRate(24); //enemy physics tied to fps
+  output = createWriter("score.txt");
 
   // Music calls
   minim = new Minim(this);
@@ -93,7 +98,7 @@ startup = minim.loadFile("startup.mp3");
   //song.play();
 
   // font calls
-  title = createFont("Bold.ttf", 32); //thick font
+  title = createFont("Bold.ttf", 320); //thick font
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
@@ -111,12 +116,13 @@ startup = minim.loadFile("startup.mp3");
   rectMode(CENTER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
+  
 }
 
 void draw() { //Runs once in program
 noCursor();
  fill(255);
-  
+   scale(1);
   if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
     fill(#0040FA);
@@ -145,6 +151,7 @@ noCursor();
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
      death = minim.loadFile("Scream.mp3");
+     
     textAlign(CORNER);
     level1.play();
   } else {
@@ -266,7 +273,7 @@ noCursor();
   textSize(20);
   fill(255);
   text("SCORE",1150,20);
-  text(10000 - time,1200,20);
+  text(scale,1200,20);
   popMatrix();
 }
 

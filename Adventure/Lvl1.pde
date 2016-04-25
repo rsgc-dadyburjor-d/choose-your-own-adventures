@@ -25,6 +25,7 @@ saw.pause();
     textSize(22);
     text("USE THE ARROW KEYS",420,displayHeight/1.9);
     text("Level 1",420,displayHeight/1.8);
+    
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     

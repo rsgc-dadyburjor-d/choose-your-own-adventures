@@ -8,7 +8,7 @@ class Win3 {
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
    fill(#FF4A03, 60); // semi-transparent white
-  rect(0, 0, width, height);
+  rect(0, 0, 6000, 6000);
     
       win.play();
       level3.pause();
@@ -41,6 +41,8 @@ class Win3 {
     Y=356;
     scene=8; //moves to Scene 2 (level 1)
     winner = minim.loadFile("winner.mp3");
+    
+    
     
     
       }
