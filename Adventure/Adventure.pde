@@ -6,8 +6,6 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-
-  
 //audio Tracks
 Minim minim;
 AudioPlayer startup; //level pass
@@ -27,8 +25,6 @@ AudioPlayer winner; //level pass
 PFont subtitle; //smaller thinner text
 PFont title; //bolded text
 
-
-
 //Images
 PImage chainsaw;
 PImage cursor;
@@ -40,11 +36,7 @@ PImage violin;
 PImage finish;
 PImage success;
 PImage joystick;
-String highscoreFile = "highscore.txt";
-final String SC = "Score: ";
-final String HS = "Highscore: ";
-final String PL = "Playing";
-final String GO = "Game Over";
+
 //variables
 int timer;
 int scene = 0; //Scene position
@@ -61,13 +53,9 @@ int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
-int score= 5000 - time;
-int highscore;
-String s = "Score: ";
-String hs = "Highscore: ";
-PrintWriter output;
-BufferedReader reader;
-String line;
+
+
+
 
 //scenes
 Start menu = new Start(); //start menu
@@ -124,14 +112,14 @@ startup = minim.loadFile("startup.mp3");
   rectMode(CENTER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
-  reader = createReader("highscore.txt");  
+
   
 }
 
 void draw() { //Runs once in program
 noCursor();
  fill(255);
-    output = createWriter("highscore.txt");
+
     
   if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
@@ -276,50 +264,28 @@ noCursor();
   //if (scene == 3) {
   // background(200);
   //}
- 
+  
   
   pushMatrix();
   textSize(20);
   fill(255);
+
   text("SCORE",1150,20);
   text(5000 - time,1200,20);
+
+ 
   popMatrix();
   text(5000 - time,25,25);
-  upScore();
-  text(hs + highscore,700,25);
-  updateHighscore();
+  
+
+
 }
 
-void upScore() {
-  score = score-1;
-  
-}
-void updateHighscore() {
-  if (scene == 8) {
-   if (highscore < 5000 - time) {
-     
-    highscore = 5000 - time;
-    output.println(highscore);
+
+
     
-   }
-   
-  }
-}
-void importHighscore() {
-  try {
-    line = reader.readLine();
-  } catch (IOException e) {
-    e.printStackTrace();
-    line = null;
-  }
-  if (line == null) {
-    //
-  } else {
-    String[] pieces = split(line, TAB);
-    highscore = int(pieces[0]);
-    println(highscore);
-  }
-}
+
+  
 void keyPressed() { //KeyMappings for Player
 
 
@@ -351,8 +317,8 @@ void keyPressed() { //KeyMappings for Player
     Y=356;
     time=0;
     death.close();
-    output.flush(); // Writes the remaining data to the file
-      output.close(); // Finishes the file
+
+
       
 
   }

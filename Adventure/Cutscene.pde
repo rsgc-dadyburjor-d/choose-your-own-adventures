@@ -23,6 +23,7 @@ class CS {
     text("SCORE", 11, displayHeight/2+200);
 
     textSize(100);
+
     fill(255);
     text(5000 - time, 600, displayHeight/1.1);
     text("Final Score", 11, displayHeight/1.1);
@@ -32,5 +33,7 @@ class CS {
   
 
   
+
+   
       }
   }
