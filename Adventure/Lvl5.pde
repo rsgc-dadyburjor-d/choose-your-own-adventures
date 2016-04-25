@@ -40,7 +40,9 @@ saw.pause();
     textSize(226);
     fill(#710101);
     
-    
+    if (health > 5) {
+      time++;
+    }
     if (health < 5) {
       
       

@@ -7,8 +7,13 @@ class Win3 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
+
    fill(#FF4A03, 60); // semi-transparent white
   rect(0, 0, 6000, 6000);
+
+   fill(#FF4A03, 30); // semi-transparent white
+  rect(0, 0, width, height);
+
     
       win.play();
       level3.pause();
@@ -17,7 +22,7 @@ class Win3 {
       text("Gents, This is Bad!",11,displayHeight/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 3 Complete!",24,displayHeight/9);
+      text("Level 3 Complete!",24,displayHeight/1.3);
       text("What a Waste!",24,displayHeight/1.8);
       textSize(612);
       fill(255,255,255,40);
@@ -33,14 +38,13 @@ class Win3 {
       
       if (key == '+' || key == '=') { //Start Command
       win.pause();
-       winner.close();
       enemyX=1400; 
     enemyY=800;
     health=10;
     X=137;
     Y=356;
     scene=8; //moves to Scene 2 (level 1)
-    winner = minim.loadFile("winner.mp3");
+    
     
     
     

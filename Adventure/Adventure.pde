@@ -6,6 +6,8 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+
+  
 //audio Tracks
 Minim minim;
 AudioPlayer startup; //level pass
@@ -25,12 +27,8 @@ AudioPlayer winner; //level pass
 PFont subtitle; //smaller thinner text
 PFont title; //bolded text
 
-<<<<<<< HEAD
-PrintWriter output;
 
 
-=======
->>>>>>> parent of 9310b08... Made sketch scalable to different resolutions
 //Images
 PImage chainsaw;
 PImage cursor;
@@ -42,7 +40,11 @@ PImage violin;
 PImage finish;
 PImage success;
 PImage joystick;
-
+String highscoreFile = "highscore.txt";
+final String SC = "Score: ";
+final String HS = "Highscore: ";
+final String PL = "Playing";
+final String GO = "Game Over";
 //variables
 int timer;
 int scene = 0; //Scene position
@@ -59,13 +61,13 @@ int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
-<<<<<<< HEAD
-int score= 10000 - time;
-int preset = 1280;
-float scale= displayWidth / 1280;
-=======
-
->>>>>>> parent of 9310b08... Made sketch scalable to different resolutions
+int score= 5000 - time;
+int highscore;
+String s = "Score: ";
+String hs = "Highscore: ";
+PrintWriter output;
+BufferedReader reader;
+String line;
 
 //scenes
 Start menu = new Start(); //start menu
@@ -77,13 +79,14 @@ Lvl4 lvl4 = new Lvl4();
 Lvl5 lvl5 = new Lvl5();
 Win3 win3 = new Win3();
 CS cs = new CS();
+
+
+
 void setup() {
-  fullScreen(P2D);
-  
-  
-  //fullScreen(JAVA2D); //1280x800
+
+  fullScreen(JAVA2D); //1280x800
   frameRate(24); //enemy physics tied to fps
-  output = createWriter("score.txt");
+  
 
   // Music calls
   minim = new Minim(this);
@@ -103,7 +106,7 @@ startup = minim.loadFile("startup.mp3");
   //song.play();
 
   // font calls
-  title = createFont("Bold.ttf", 320); //thick font
+  title = createFont("Bold.ttf", 32); //thick font
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
@@ -121,13 +124,15 @@ startup = minim.loadFile("startup.mp3");
   rectMode(CENTER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
+  reader = createReader("highscore.txt");  
   
 }
 
 void draw() { //Runs once in program
 noCursor();
  fill(255);
-   scale(1);
+    output = createWriter("highscore.txt");
+    
   if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
     fill(#0040FA);
@@ -156,7 +161,6 @@ noCursor();
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
      death = minim.loadFile("Scream.mp3");
-     
     textAlign(CORNER);
     level1.play();
   } else {
@@ -272,26 +276,50 @@ noCursor();
   //if (scene == 3) {
   // background(200);
   //}
-  pushMatrix();
-  textSize(20);
-  fill(255);
-  text(frameRate,1200,20);
-  popMatrix();
+ 
   
   pushMatrix();
   textSize(20);
   fill(255);
-<<<<<<< HEAD
   text("SCORE",1150,20);
-  text(scale,1200,20);
-=======
-  text("SCORE",1150,100);
-  text(10000 - time,1200,100);
->>>>>>> parent of 9310b08... Made sketch scalable to different resolutions
+  text(5000 - time,1200,20);
   popMatrix();
+  text(5000 - time,25,25);
+  upScore();
+  text(hs + highscore,700,25);
+  updateHighscore();
 }
 
-
+void upScore() {
+  score = score-1;
+  
+}
+void updateHighscore() {
+  if (scene == 8) {
+   if (highscore < 5000 - time) {
+     
+    highscore = 5000 - time;
+    output.println(highscore);
+    
+   }
+   
+  }
+}
+void importHighscore() {
+  try {
+    line = reader.readLine();
+  } catch (IOException e) {
+    e.printStackTrace();
+    line = null;
+  }
+  if (line == null) {
+    //
+  } else {
+    String[] pieces = split(line, TAB);
+    highscore = int(pieces[0]);
+    println(highscore);
+  }
+}
 void keyPressed() { //KeyMappings for Player
 
 
@@ -323,5 +351,9 @@ void keyPressed() { //KeyMappings for Player
     Y=356;
     time=0;
     death.close();
+    output.flush(); // Writes the remaining data to the file
+      output.close(); // Finishes the file
+      
+
   }
 }

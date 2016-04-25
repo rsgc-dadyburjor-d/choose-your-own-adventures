@@ -33,7 +33,6 @@ class Lvl2 {
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
-       winner.close();
       win.pause();
       enemyX=1400; 
     enemyY=800;
@@ -42,7 +41,7 @@ class Lvl2 {
     Y=356;
     scene=4; //moves to Scene 2 (level 1)
     level2.play();
-    winner = minim.loadFile("winner.mp3");
+    
     
       }
   }
