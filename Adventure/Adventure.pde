@@ -275,7 +275,7 @@ noCursor();
 
  
   popMatrix();
-  text(5000 - time,25,25);
+  
   
 
 
