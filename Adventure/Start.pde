@@ -42,7 +42,9 @@ class Start {
     textSize(106);
 
     textAlign(CORNER);
-   
+    if (key == 'x' || key == 'X') { //Start Command
+    gordon = loadImage("ferrar.png");//playersprite
+    }
    if (key == 'c' || key == 'C') { //Start Command
   
    fill (50);

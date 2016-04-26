@@ -83,7 +83,7 @@ startup = minim.loadFile("startup.mp3");
   saw = minim.loadFile("Chainsaw.mp3");
   death = minim.loadFile("Scream.mp3");
   death2 = minim.loadFile("death.mp3");
-  enemy = minim.loadFile("Enemy.mp3");
+  enemy = minim.loadFile("startup.mp3");
   level1 = minim.loadFile("Level1.mp3");
   level2 = minim.loadFile("Level2.mp3");
   level3 = minim.loadFile("Level3.mp3");
@@ -117,6 +117,7 @@ startup = minim.loadFile("startup.mp3");
 }
 
 void draw() { //Runs once in program
+
 noCursor();
  fill(255);
 

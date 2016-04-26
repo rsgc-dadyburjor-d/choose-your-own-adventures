@@ -96,6 +96,7 @@ saw.pause();
     
       if (X-30 > 1200){
       scene=3;
+       enemy.close();
 }
   
 

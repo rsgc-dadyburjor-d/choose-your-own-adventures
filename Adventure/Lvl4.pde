@@ -75,19 +75,19 @@ saw.pause();
     
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
-      enemyX-=2;
+      enemyX-=6;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=2;
+      enemyX+=6;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=2;
+      enemyY-=6;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=2;
+      enemyY+=6;
       
     }
     
@@ -95,6 +95,7 @@ saw.pause();
     
       if (X-30 > 1200){
       scene=7;
+      enemy.close();
 }
   if (Y < enemyY + 180 &&
       Y > enemyY -180 &&

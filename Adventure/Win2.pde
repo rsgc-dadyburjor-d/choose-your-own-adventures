@@ -36,6 +36,7 @@ class Win2 {
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
+      enemy = minim.loadFile("startup.mp3");
       win.pause();
       enemyX=1400; 
     enemyY=800;
