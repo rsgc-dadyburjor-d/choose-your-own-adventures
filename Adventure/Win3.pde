@@ -14,7 +14,7 @@ class Win3 {
    fill(#FF4A03, 30); // semi-transparent white
   rect(0, 0, width, height);
 
-    
+    output.println(score);
       win.play();
       level3.pause();
       fill(255);
@@ -37,6 +37,8 @@ class Win3 {
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
+      output.flush(); // Writes the remaining data to the file
+  output.close(); // Finishes the file
       enemy = minim.loadFile("startup.mp3");
       win.pause();
       enemyX=1400; 

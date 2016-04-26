@@ -1,3 +1,6 @@
+  
+PrintWriter output;
+
 //audio Libraries
 import ddf.minim.*;
 import ddf.minim.analysis.*;
@@ -53,7 +56,7 @@ int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
-
+int score;
 
 
 
@@ -71,8 +74,8 @@ CS cs = new CS();
 
 
 void setup() {
-
-  fullScreen(JAVA2D); //1280x800
+output = createWriter("score.txt"); 
+  fullScreen(); //1280x800
   frameRate(24); //enemy physics tied to fps
   
 
@@ -149,6 +152,7 @@ noCursor();
 
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
+    enemy.play();
      death = minim.loadFile("Scream.mp3");
     textAlign(CORNER);
     level1.play();
@@ -173,6 +177,7 @@ noCursor();
   if (scene == 8) { //SCENE 4 (lvl2)
     cs.drawAt(0, 0, 1, 1);
   }
+  
   
   if (scene == 2) { //SCENE 2 (Lvl1)
 
@@ -272,12 +277,13 @@ noCursor();
   fill(255);
 
   text("SCORE",1150,20);
-  text(5000 - time,1200,20);
+  text(score,1200,20);
 
  
   popMatrix();
   
-  
+  score = (5000 - time);
+
 
 
 }

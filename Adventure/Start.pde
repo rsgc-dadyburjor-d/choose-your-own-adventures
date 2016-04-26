@@ -43,10 +43,10 @@ class Start {
 
     textAlign(CORNER);
     if (key == 'x' || key == 'X') { //Start Command
-    gordon = loadImage("ferrar.png");//playersprite
+    gordon = loadImage("trump.png");//playersprite
     }
    if (key == 'c' || key == 'C') { //Start Command
-  
+  rectMode(CENTER);//Rect loads Centered
    fill (50);
     rect(displayWidth/2, displayHeight/2, 500, 200);
     fill(255);
