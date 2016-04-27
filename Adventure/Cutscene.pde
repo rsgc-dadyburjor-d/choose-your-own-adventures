@@ -9,7 +9,7 @@ class CS {
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
 
-    fill(#43DE4E, 140); // semi-transparent white
+    fill(hs, 140); // semi-transparent white
     rect(0, 0, 6000, 6000);
 
     csm.play();
@@ -27,17 +27,25 @@ class CS {
     fill(255);
     text(score, 600, displayHeight/1.1);
     
-    text("Final Score", 11, displayHeight/1.1);
+    
     textSize(30);
     text("Menu (Enter)", 24, displayHeight/1.03);
-   
 
+if (score < lastscore){
+  textSize(100);
+  image(attempt,1100,600);
+  text("Final Score", 11, displayHeight/1.1);
+}
+if (score == lastscore){
+  textSize(100);
+  text("High Score!", 11, displayHeight/1.1);
+image(high,1100,600);
+}
 if (score > lastscore){
-  
+  image(violin,1100,700); 
   lastscore = score;
 }
-text("High Score", 11, 50);
-text(lastscore, 150, 50);
+
 
    
       }

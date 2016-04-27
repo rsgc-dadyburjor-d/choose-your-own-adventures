@@ -39,7 +39,8 @@ PImage violin;
 PImage finish;
 PImage success;
 PImage joystick;
-
+PImage high;
+PImage attempt;
 //variables
 int timer;
 int scene = 0; //Scene position
@@ -115,6 +116,8 @@ startup = minim.loadFile("startup.mp3");
   violin = loadImage("Violin.png");//Violin Sprite
   finish = loadImage("finish.png");//finish line Sprite
   success = loadImage("successful.png");//success sprite
+  high = loadImage("highscore.png");//success sprite
+  attempt = loadImage("attempt.png");
   
   // Misc controls
   noStroke(); //removes outlines

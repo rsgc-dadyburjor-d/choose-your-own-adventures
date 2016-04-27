@@ -59,7 +59,7 @@ class Start {
     text("Reset - Enter", displayWidth/3, displayHeight/1.8); 
     text("Start - S", displayWidth/3, displayHeight/1.9); 
     
-    lastscore = score;
+    
    
 
  
