@@ -25,14 +25,19 @@ class CS {
     textSize(100);
 
     fill(255);
-    text(5000 - time, 600, displayHeight/1.1);
+    text(score, 600, displayHeight/1.1);
+    
     text("Final Score", 11, displayHeight/1.1);
     textSize(30);
     text("Menu (Enter)", 24, displayHeight/1.03);
    
-  
 
+if (score > lastscore){
   
+  lastscore = score;
+}
+text("High Score", 11, 50);
+text(lastscore, 150, 50);
 
    
       }

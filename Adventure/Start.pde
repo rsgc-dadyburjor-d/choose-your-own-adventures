@@ -39,8 +39,9 @@ class Start {
     fill(255);
     textSize(250);
     text("CHAINSAW", displayWidth/2, displayHeight/3.4); 
-    textSize(106);
+    textSize(20);
 
+ 
     textAlign(CORNER);
     if (key == 'x' || key == 'X') { //Start Command
     gordon = loadImage("trump.png");//playersprite
@@ -58,7 +59,12 @@ class Start {
     text("Reset - Enter", displayWidth/3, displayHeight/1.8); 
     text("Start - S", displayWidth/3, displayHeight/1.9); 
     
-    
+    lastscore = score;
+   
+
+ 
+
+  
    }
     
   }

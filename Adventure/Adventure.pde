@@ -56,8 +56,14 @@ int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
+int highscore=0;
+int lastscore=0;
 int score;
 
+//Difficulties
+int level1d = 4;
+int level2d = 4;
+int level3d = 4;
 
 
 //scenes
@@ -74,8 +80,8 @@ CS cs = new CS();
 
 
 void setup() {
-output = createWriter("score.txt"); 
-  fullScreen(); //1280x800
+
+  fullScreen(JAVA2D); //1280x800
   frameRate(24); //enemy physics tied to fps
   
 
@@ -278,6 +284,9 @@ noCursor();
 
   text("SCORE",1150,20);
   text(score,1200,20);
+  
+  text("HIGHSCORE",20,20);
+  text(lastscore,150,20);
 
  
   popMatrix();
@@ -325,7 +334,8 @@ void keyPressed() { //KeyMappings for Player
     time=0;
     death.close();
 
-
+  
+output = createWriter("score.txt"); 
       
 
   }

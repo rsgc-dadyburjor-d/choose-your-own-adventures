@@ -70,25 +70,25 @@ saw.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-     
+     textFont(title);
       
     }
     
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
-      enemyX-=5;
+      enemyX-=level1d;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=4;
+      enemyX+=level1d;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=4;
+      enemyY-=level1d;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=4;
+      enemyY+=level1d;
       
     }
     

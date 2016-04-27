@@ -75,19 +75,19 @@ saw.pause();
     
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
-      enemyX-=6;
+      enemyX-=level3d;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=6;
+      enemyX+=level3d;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=6;
+      enemyY-=level3d;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=6;
+      enemyY+=level3d;
       
     }
     
