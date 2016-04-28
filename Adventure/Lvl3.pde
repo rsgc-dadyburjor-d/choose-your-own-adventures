@@ -19,13 +19,13 @@ saw.pause();
     textSize(300);
     pushMatrix();
     scale(4);
-    image(finish,320 ,0 );
+    image(finish, width/4 ,0 );
     popMatrix();
     fill(#03FFF0);
-    text("ESCAPE",420,displayHeight/2);
+    text("ESCAPE",width/2.6,height/2);
     textSize(22);
-    text("Mindblowing stuff - Mindblowing stuff - Mindblowing stuff - Mindblowing stuff",420,displayHeight/1.9);
-    text("level 2",420,displayHeight/1.8);
+    text("Mindblowing stuff - Mindblowing stuff - Mindblowing stuff - Mindblowing stuff",width/2.6,height/1.9);
+    text("level 2",width/2.6,height/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -56,16 +56,16 @@ saw.pause();
       image(violin,1100,700); 
       fill(255);
       textSize(132);
-      text("Looks Like It Hurt Gents,",11,displayHeight/2);
+      text("Looks Like It Hurt Gents,",11,height/2);
       textSize(112);
       textFont(subtitle);
-      text("Sorry, not Sorry!",24,displayHeight/1.8);
+      text("Sorry, not Sorry!",24,height/1.8);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
+      text("Dead",11,height/2+200);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04);
-      text("Menu (Enter)",24,displayHeight/1.13);
+      text("Exit (ESC)",24,height/1.04);
+      text("Menu (Enter)",24,height/1.13);
       level1.pause();
       fill(255);
       X=-10000;
@@ -94,7 +94,7 @@ saw.pause();
     
     //finish
     
-      if (X-30 > 1200){
+      if (X-30 > width/1.1){
       scene=5;
       enemy.close();
 }

@@ -15,17 +15,17 @@ class Lvl2 {
       fill(255);
       
       textSize(132);
-      text("Gents, Well Done!",11,displayHeight/2);
+      text("Gents, Well Done!",11,height/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 1 Complete!",24,displayHeight/9);
-      text("Ill be back in two shakes of a lamb's tail!",24,displayHeight/1.8);
+      text("Level 1 Complete!",24,height/9);
+      text("Ill be back in two shakes of a lamb's tail!",24,height/1.8);
       textSize(612);
       fill(255,255,255,30);
-      text("SUCCESS",11,displayHeight/2+200);
+      text("SUCCESS",11,height/2+200);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04);
-      text("Next (+)",24,displayHeight/1.13);
+      text("Exit (ESC)",24,height/1.04);
+      text("Next (+)",24,height/1.13);
       level1.pause();
       fill(255);
       pushMatrix();

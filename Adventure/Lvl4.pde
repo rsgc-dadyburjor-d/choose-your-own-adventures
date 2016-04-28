@@ -19,12 +19,12 @@ saw.pause();
     textSize(300);
     pushMatrix();
     scale(4);
-    image(finish,320 ,0 );
+    image(finish, width/4 ,0 );
     popMatrix();
-    text("GENTS!",420,displayHeight/2);
+    text("GENTS!",420,height/2);
     textSize(22);
-    text("TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING",420,displayHeight/1.9);
-    text("level 3",420,displayHeight/1.8);
+    text("TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING",420,height/1.9);
+    text("level 3",420,height/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -55,16 +55,16 @@ saw.pause();
       image(violin,1100,700); 
       fill(255);
       textSize(132);
-      text("Gents, What a bloodbath,",11,displayHeight/2);
+      text("Gents, What a bloodbath,",11,height/2);
       textSize(112);
       textFont(subtitle);
-      text("that just won't do!",24,displayHeight/1.8);
+      text("that just won't do!",24,height/1.8);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
+      text("Dead",11,height/2+200);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04);
-      text("Menu (Enter)",24,displayHeight/1.13);
+      text("Exit (ESC)",24,height/1.04);
+      text("Menu (Enter)",24,height/1.13);
       level1.pause();
       fill(255);
       X=-10000;
@@ -93,7 +93,7 @@ saw.pause();
     
     //finish
     
-      if (X-30 > 1200){
+      if (X-30 > width/1.1){
       scene=7;
       enemy.close();
 }

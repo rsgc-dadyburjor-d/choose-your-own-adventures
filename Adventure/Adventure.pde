@@ -140,11 +140,11 @@ noCursor();
     fill(#0040FA);
     textFont(title);
     textSize(300);
-    text("8-BIT",displayWidth/2,displayHeight/2.3);
+    text("8-BIT",width/2,height/2.3);
     textSize(50);
     fill(0);
-    text("beep boop beep",displayWidth/2,displayHeight/2);
-     image(joystick,displayWidth/2 ,displayHeight/1.2 ); 
+    text("beep boop beep",width/2,height/2);
+     image(joystick,width/2 ,height/1.2 ); 
     startup.play();
     if (millis() - timer >= 5000) {
     scene=1;
