@@ -9,7 +9,7 @@ class CS {
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
 
-    fill(hs, 140); // semi-transparent white
+fill(#6DD302,80);
     rect(0, 0, 6000, 6000);
 
     csm.play();

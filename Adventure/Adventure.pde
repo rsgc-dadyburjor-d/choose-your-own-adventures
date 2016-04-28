@@ -60,6 +60,7 @@ int time=0;
 int highscore=0;
 int lastscore=0;
 int score;
+int mode;
 
 //Difficulties
 int level1d = 4;
@@ -82,7 +83,7 @@ CS cs = new CS();
 
 void setup() {
 
-  fullScreen(JAVA2D); //1280x800
+  size(1280 , 800);//1280x800
   frameRate(24); //enemy physics tied to fps
   
 
@@ -285,6 +286,7 @@ noCursor();
   textSize(20);
   fill(255);
 
+  text(frameRate,1200,100);
   text("SCORE",1150,20);
   text(score,1200,20);
   
