@@ -82,8 +82,11 @@ CS cs = new CS();
 
 
 void setup() {
+  
+  size(1280,800,JAVA2D);//1280x800
+  noSmooth();
 surface.setResizable(true);
-  size(1280, 800);//1280x800
+  
   frameRate(24); //enemy physics tied to fps
   
 
@@ -105,7 +108,7 @@ startup = minim.loadFile("startup.mp3");
   //song.play();
 
   // font calls
-  title = createFont("Bold.ttf", 32); //thick font
+  title = createFont("Bold.ttf", 12); //thick font
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
