@@ -82,7 +82,7 @@ CS cs = new CS();
 
 
 void setup() {
-
+surface.setResizable(true);
   size(1280, 800);//1280x800
   frameRate(24); //enemy physics tied to fps
   
