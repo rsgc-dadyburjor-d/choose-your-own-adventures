@@ -21,10 +21,10 @@ saw.pause();
     scale(4);
     image(finish, width/4 ,0 );
     popMatrix();
-    text("GENTS!",420,height/2);
+    text("GENTS!",width/2.6,height/2);
     textSize(22);
-    text("TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING",420,height/1.9);
-    text("level 3",420,height/1.8);
+    text("TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING",width/2.6,height/1.9);
+    text("level 3",width/2.6,height/1.8);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -48,28 +48,30 @@ saw.pause();
       
   level3.pause();
        
-      song.pause();
+      level2.pause();
+       
+            song.pause();
       death.play();
       death2.play();
       background(#E00707);
-      image(violin,1100,700); 
+      image(violin,width/1.16,height/1.14); 
       fill(255);
       textSize(132);
-      text("Gents, What a bloodbath,",11,height/2);
+      text("Gents, What a bloodbath,",width/116.36 ,height/2);
       textSize(112);
       textFont(subtitle);
-      text("that just won't do!",24,height/1.8);
+      text("that just won't do!",width/53.3,height/1.8);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,height/2+200);
+      text("Dead",width/116.36,height/1.33);
       textSize(50);
-      text("Exit (ESC)",24,height/1.04);
-      text("Menu (Enter)",24,height/1.13);
+      text("Exit (ESC)",width/53.3,height/1.04);
+      text("Menu (Enter)",width/53.3,height/1.13);
       level1.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-         
+     textFont(title);
       
     }
     

@@ -46,8 +46,8 @@ int timer;
 int scene = 0; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
-int enemyX=1400; //enemy X pos
-int enemyY=800; //enemy Y pos
+int enemyX=width*12; //enemy X pos
+int enemyY=height; //enemy Y pos
 int hp=100; //enemy health
 int dmg=10; //player damage
 int bulletX = X; //bullet X pos
@@ -75,7 +75,7 @@ Lvl2 lvl2 = new Lvl2();
 Lvl3 lvl3 = new Lvl3();
 Win2 win2 = new Win2();
 Lvl4 lvl4 = new Lvl4();
-Lvl5 lvl5 = new Lvl5();
+
 Win3 win3 = new Win3();
 CS cs = new CS();
 
@@ -83,7 +83,7 @@ CS cs = new CS();
 
 void setup() {
 
-  size(1280 , 800);//1280x800
+  size(1280, 800);//1280x800
   frameRate(24); //enemy physics tied to fps
   
 
@@ -263,14 +263,14 @@ noCursor();
 
   //player bounds
 
-  if (X > 1280) {
-    X=1280;
+  if (X > width) {
+    X= width;
   }
   if (X < 0) {
     X=1;
   }
-  if (Y > 800) {
-    Y=800;
+  if (Y > height) {
+    Y=height;
   }
   if (Y < 0) {
     Y=0;
@@ -286,12 +286,12 @@ noCursor();
   textSize(20);
   fill(255);
 
-  text(frameRate,1200,100);
-  text("SCORE",1150,20);
-  text(score,1200,20);
+  //text(frameRate,width/1.066,height/8);
+  text("SCORE",width/1.213,height/40);
+  text(score,width/1.113,height/40);
   
-  text("HIGHSCORE",20,20);
-  text(lastscore,150,20);
+  text("HIGHSCORE",width/64,height/40);
+  text(lastscore,width/8.533,height/40);
 
  
   popMatrix();
