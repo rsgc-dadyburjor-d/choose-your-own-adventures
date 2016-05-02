@@ -78,11 +78,12 @@ Win3 win3 = new Win3();//win3
 CS cs = new CS(); //score
 
 void setup() {
+fullScreen(P2D);//1280x800
 
-  fullScreen(P2D);//1280x800
   smooth(0);
   surface.setResizable(true); //allows dynamic resize when out of fullscreen
   frameRate(60); //enemy physics tied to fps
+  noStroke();
 
   // Music calls
   minim = new Minim(this);
@@ -227,13 +228,14 @@ void draw() { //Runs once in program
     Y=0;
   }
 
+
   //Gui Code
   pushMatrix();
   textSize(20);
   fill(255);
   text(frameRate,width/1.066,height/8);
-  text("SCORE", width/1.213, height/40);
-  text(score, width/1.113, height/40);
+  text("SCORE", width/1.153, height/40);
+  text(score, width/1.093, height/40);
   text("HIGHSCORE", width/64, height/40);
   text(lastscore, width/8.533, height/40);
   popMatrix();
@@ -244,19 +246,6 @@ void draw() { //Runs once in program
 
 void keyPressed() { //KeyMappings for Player
 
-  if (keyCode == LEFT) { //Move left
-    X+=-30;
-  }
-  if (keyCode == RIGHT) { //Move right
-    X+=30;
-  }
-
-  if (keyCode == UP) { //move up
-    Y+=-30;
-  }
-  if (keyCode == DOWN) { //move down
-    Y+=30;
-  }
   if (keyCode == ENTER) { //after death resets game
     //all variables are reset
     song.play();

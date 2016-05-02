@@ -55,21 +55,22 @@ PImage photo;
       Y=-10000;
      textFont(title); 
     }
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level1d;
+       //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level1d;
+      enemyX+=level1d + scene *2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level1d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level1d;
+      enemyY+=level1d + scene*2;
     }
     //finish
     

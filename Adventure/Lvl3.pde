@@ -76,23 +76,24 @@ PImage photo;
       
     }
     
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level2d;
+       //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level2d;
+      enemyX+=level1d + scene*2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level2d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level2d;
-      
+      enemyY+=level1d + scene*2;
     }
+    
     
     //finish
     
