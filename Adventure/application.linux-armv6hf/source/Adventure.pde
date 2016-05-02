@@ -1,4 +1,4 @@
-  
+
 PrintWriter output;
 
 //audio Libraries
@@ -46,8 +46,8 @@ int timer;
 int scene = 0; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
-int enemyX=1400; //enemy X pos
-int enemyY=800; //enemy Y pos
+int enemyX=width*12; //enemy X pos
+int enemyY=height; //enemy Y pos
 int hp=100; //enemy health
 int dmg=10; //player damage
 int bulletX = X; //bullet X pos
@@ -61,11 +61,11 @@ int highscore=0;
 int lastscore=0;
 int score;
 int mode;
-
+int d = 1;
 //Difficulties
-int level1d = 4;
-int level2d = 4;
-int level3d = 4;
+int level1d = 4 * d;
+int level2d = 6 * d;
+int level3d = 7 * d;
 
 
 //scenes
@@ -75,7 +75,7 @@ Lvl2 lvl2 = new Lvl2();
 Lvl3 lvl3 = new Lvl3();
 Win2 win2 = new Win2();
 Lvl4 lvl4 = new Lvl4();
-Lvl5 lvl5 = new Lvl5();
+
 Win3 win3 = new Win3();
 CS cs = new CS();
 
@@ -83,13 +83,16 @@ CS cs = new CS();
 
 void setup() {
 
-  size(1280 , 800);//1280x800
+  fullScreen(JAVA2D);//1280x800
+  noSmooth();
+  surface.setResizable(true);
+
   frameRate(24); //enemy physics tied to fps
-  
+
 
   // Music calls
   minim = new Minim(this);
-startup = minim.loadFile("startup.mp3");
+  startup = minim.loadFile("startup.mp3");
   song = minim.loadFile("Music.mp3");
   saw = minim.loadFile("Chainsaw.mp3");
   death = minim.loadFile("Scream.mp3");
@@ -105,11 +108,11 @@ startup = minim.loadFile("startup.mp3");
   //song.play();
 
   // font calls
-  title = createFont("Bold.ttf", 32); //thick font
+  title = createFont("Bold.ttf", 12); //thick font
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
-   joystick = loadImage("joystick.png");//menusprite not used
+  joystick = loadImage("joystick.png");//menusprite not used
   start = loadImage("Adventure.jpg");//menusprite not used
   gordon = loadImage("Gordon.png");//playersprite
   ferrar = loadImage("ferrar.png");//enemysprite
@@ -119,37 +122,39 @@ startup = minim.loadFile("startup.mp3");
   success = loadImage("successful.png");//success sprite
   high = loadImage("highscore.png");//success sprite
   attempt = loadImage("attempt.png");
-  
+
   // Misc controls
   noStroke(); //removes outlines
-  rectMode(CENTER);//Rect loads Centered
+  rectMode(CORNER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
-
-  
 }
 
 void draw() { //Runs once in program
 
-noCursor();
- fill(255);
+  noCursor();
+  fill(255);
 
-    
+
   if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
     fill(#0040FA);
     textFont(title);
     textSize(300);
-    text("8-BIT",displayWidth/2,displayHeight/2.3);
+    text("8-BIT", width/2, height/2.3);
     textSize(50);
     fill(0);
-    text("beep boop beep",displayWidth/2,displayHeight/2);
-     image(joystick,displayWidth/2 ,displayHeight/1.2 ); 
+    text("beep boop beep", width/2, height/2);
+    image(joystick, width/2, height/1.2 ); 
     startup.play();
+    if (width < 1920) {
+      textSize(10);
+      text("Below Recommended Resolution (1920x1080)", width/2, height / 10);
+    }
     if (millis() - timer >= 5000) {
-    scene=1;
-    startup.close();
-    textAlign(CORNER);
+      scene=1;
+      startup.close();
+      textAlign(CORNER);
     }
   }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
@@ -157,17 +162,15 @@ noCursor();
     death2.pause();
     song.play();
     win.pause();
-   
   }
 
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
     enemy.play();
-     death = minim.loadFile("Scream.mp3");
+    death = minim.loadFile("Scream.mp3");
     textAlign(CORNER);
     level1.play();
-  } else {
-    //leave blank, No else statement needed.
+
   }
   if (scene == 3) { //SCENE 3 (win)
     lvl2.drawAt(0, 0, 1, 1);
@@ -187,8 +190,8 @@ noCursor();
   if (scene == 8) { //SCENE 4 (lvl2)
     cs.drawAt(0, 0, 1, 1);
   }
-  
-  
+
+
   if (scene == 2) { //SCENE 2 (Lvl1)
 
     song.pause();
@@ -263,14 +266,14 @@ noCursor();
 
   //player bounds
 
-  if (X > 1280) {
-    X=1280;
+  if (X > width) {
+    X= width;
   }
   if (X < 0) {
     X=1;
   }
-  if (Y > 800) {
-    Y=800;
+  if (Y > height) {
+    Y=height;
   }
   if (Y < 0) {
     Y=0;
@@ -280,33 +283,30 @@ noCursor();
   //if (scene == 3) {
   // background(200);
   //}
-  
-  
+
+
   pushMatrix();
   textSize(20);
   fill(255);
 
-  text(frameRate,1200,100);
-  text("SCORE",1150,20);
-  text(score,1200,20);
-  
-  text("HIGHSCORE",20,20);
-  text(lastscore,150,20);
+  //text(frameRate,width/1.066,height/8);
+  text("SCORE", width/1.213, height/40);
+  text(score, width/1.113, height/40);
 
- 
+  text("HIGHSCORE", width/64, height/40);
+  text(lastscore, width/8.533, height/40);
+
+
   popMatrix();
-  
+
   score = (5000 - time);
-
-
-
 }
 
 
 
-    
 
-  
+
+
 void keyPressed() { //KeyMappings for Player
 
 
@@ -339,9 +339,7 @@ void keyPressed() { //KeyMappings for Player
     time=0;
     death.close();
 
-  
-output = createWriter("score.txt"); 
-      
 
+    output = createWriter("score.txt");
   }
 }

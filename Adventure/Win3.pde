@@ -47,11 +47,7 @@ class Win3 {
     Y=356;
     scene=8; //moves to Scene 2 (level 1)
     
-    
-    
-    
-    
-    
+   
       }
   }
 }

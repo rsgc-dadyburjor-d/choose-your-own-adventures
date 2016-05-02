@@ -20,26 +20,26 @@ fill(#6DD302,80);
 
     textSize(612);
     fill(255, 255, 255, 80);
-    text("SCORE", 11, displayHeight/2+200);
+    text("SCORE", width/116.36, height/1.33);
 
     textSize(100);
 
     fill(255);
-    text(score, 600, displayHeight/1.1);
+    text(score, width/2.13, height/1.1);
     
     
     textSize(30);
-    text("Menu (Enter)", 24, displayHeight/1.03);
+    text("Menu (Enter)", width/24, height/1.03);
 
 if (score < lastscore){
   textSize(100);
-  image(attempt,1100,600);
-  text("Final Score", 11, displayHeight/1.1);
+  image(attempt,width/1.16,height/1.33);
+  text("Final Score", width/116.36, height/1.1);
 }
 if (score == lastscore){
   textSize(100);
-  text("High Score!", 11, displayHeight/1.1);
-image(high,1100,600);
+  text("High Score!", width/116.36, height/1.1);
+image(high,width/1.16,height/1.33);
 }
 if (score > lastscore){
   image(violin,1100,700); 

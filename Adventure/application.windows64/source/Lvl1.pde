@@ -19,14 +19,17 @@ saw.pause();
     textSize(300);
     pushMatrix();
     scale(4);
-    image(finish,320 ,0 );
+    image(finish, width/4 ,0 );
     popMatrix();
-    text("RUN",420,displayHeight/2);
-    textSize(22);
-    text("USE THE ARROW KEYS",420,displayHeight/1.9);
-    text("Level 1",420,displayHeight/1.8);
     
-    image(gordon, X/health*10, Y/health*10);
+    
+    text("RUN",width/2.6,height/2);
+    textSize(22);
+    text("USE THE ARROW KEYS",width/2.6,height/1.9);
+    text("Level 1",width/2.6,height/1.8);
+    
+    image(gordon, X, Y);
+    
     image(ferrar,enemyX ,enemyY ); 
     
     
@@ -53,19 +56,19 @@ saw.pause();
       death.play();
       death2.play();
       background(#E00707);
-      image(violin,1100,700); 
+      image(violin,width/1.16,height/1.14); 
       fill(255);
-      textSize(132);
-      text("Gents, What a bloodbath,",11,displayHeight/2);
+      textSize(125);
+      text("Gents, What a bloodbath!",width/116.5 ,height/2);
       textSize(112);
       textFont(subtitle);
-      text("that just won't do!",24,displayHeight/1.8);
+      text("that just won't do!",width/53.3,height/1.8);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
+      text("Dead",width/116.36,height/1.33);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04);
-      text("Menu (Enter)",24,displayHeight/1.13);
+      text("Exit (ESC)",width/53.3,height/1.04);
+      text("Menu (Enter)",width/53.3,height/1.13);
       level1.pause();
       fill(255);
       X=-10000;
@@ -94,7 +97,7 @@ saw.pause();
     
     //finish
     
-      if (X-30 > 1200){
+      if (X-30 > width/1.1){
       scene=3;
        enemy.close();
 }

@@ -170,7 +170,6 @@ void draw() { //Runs once in program
     death = minim.loadFile("Scream.mp3");
     textAlign(CORNER);
     level1.play();
-
   }
   if (scene == 3) { //SCENE 3 (win)
     lvl2.drawAt(0, 0, 1, 1);

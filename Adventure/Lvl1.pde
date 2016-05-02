@@ -1,8 +1,6 @@
 class Lvl1 { 
 PImage player;
-
 PImage photo;
-
 
   void Lvl1() {
   }
@@ -14,44 +12,25 @@ PImage photo;
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 saw.pause();
 
-            
     background(30);
     textSize(300);
     pushMatrix();
     scale(4);
     image(finish, width/4 ,0 );
     popMatrix();
-    
-    
     text("RUN",width/2.6,height/2);
     textSize(22);
     text("USE THE ARROW KEYS",width/2.6,height/1.9);
     text("Level 1",width/2.6,height/1.8);
-    
     image(gordon, X, Y);
-    
     image(ferrar,enemyX ,enemyY ); 
-    
-    
-   
-   
-
-  
-  
-
- 
-    
     textSize(226);
     fill(#710101);
+    
     if (health > 5) {
       time++;
     }
-    
     if (health < 5) { //death screen
-      
-      
-  
-       
       song.pause();
       death.play();
       death2.play();
@@ -73,10 +52,8 @@ saw.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-     textFont(title);
-      
+     textFont(title); 
     }
-    
     //rect(enemyX,enemyY,hp,hp);
     if (X-30 < enemyX){
       enemyX-=level1d;
@@ -92,9 +69,7 @@ saw.pause();
     }
     if (Y-20 > enemyY){
       enemyY+=level1d;
-      
     }
-    
     //finish
     
       if (X-30 > width/1.1){

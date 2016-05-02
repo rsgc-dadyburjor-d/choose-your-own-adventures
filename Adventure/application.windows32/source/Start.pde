@@ -15,7 +15,7 @@ class Start {
   rect(0, 0, 6000, 6000);
 
     
-    image(chainsaw, displayWidth/2, displayHeight/2);
+    image(chainsaw, width/2, height/2);
 
 
     //Text
@@ -26,11 +26,11 @@ class Start {
    textFont(title);
  
     textSize(20);
-      text("Controls (C)", displayWidth/2, displayHeight/1.2);
-    text("Let's get to it Gents (S)", displayWidth/2, displayHeight/1.07);
+      text("Controls (C)", width/2, height/1.2);
+    text("Let's get to it Gents (S)", width/2, height/1.07);
     textSize(20);
-    text("Feeling Triggered ? (ESC)", displayWidth/2, displayHeight/1.02);
-    text("Revision 75", displayWidth -50 , displayHeight/1.02);
+    text("Feeling Triggered ? (ESC)", width/2, height/1.02);
+    text("Revision 100", width/1.049, height/1.02);
     
    
      
@@ -38,7 +38,7 @@ class Start {
     
     fill(255);
     textSize(250);
-    text("CHAINSAW", displayWidth/2, displayHeight/3.4); 
+    text("CHAINSAW", width/2, height/3.4); 
     textSize(20);
 
  
@@ -49,22 +49,16 @@ class Start {
    if (key == 'c' || key == 'C') { //Start Command
   rectMode(CENTER);//Rect loads Centered
    fill (50);
-    rect(displayWidth/2, displayHeight/2, 500, 200);
+    rect(width/2, height/2, 500, 200);
     fill(255);
     textSize(40);
-    text("Controls", displayWidth/3, displayHeight/2.2); 
+    text("Controls", width/3, height/2.2); 
     textSize(20);
-    text("Movement - Arrow Keys", displayWidth/3, displayHeight/2.0); 
-    text("Next Level - +", displayWidth/3, displayHeight/1.7); 
-    text("Reset - Enter", displayWidth/3, displayHeight/1.8); 
-    text("Start - S", displayWidth/3, displayHeight/1.9); 
+    text("Movement - Arrow Keys", width/3, height/2.0); 
+    text("Next Level - +", width/3, height/1.7); 
+    text("Reset - Enter", width/3, height/1.8); 
+    text("Start - S", width/3, height/1.9); 
     
-    
-   
-
- 
-
-  
    }
     
   }

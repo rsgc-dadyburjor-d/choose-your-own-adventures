@@ -21,7 +21,7 @@ import java.io.IOException;
 
 public class Adventure extends PApplet {
 
-  
+
 PrintWriter output;
 
 //audio Libraries
@@ -69,8 +69,8 @@ int timer;
 int scene = 0; //Scene position
 int X=137;//player X pos
 int Y=356; //player Y pos
-int enemyX=1400; //enemy X pos
-int enemyY=800; //enemy Y pos
+int enemyX=width*12; //enemy X pos
+int enemyY=height; //enemy Y pos
 int hp=100; //enemy health
 int dmg=10; //player damage
 int bulletX = X; //bullet X pos
@@ -84,11 +84,11 @@ int highscore=0;
 int lastscore=0;
 int score;
 int mode;
-
+int d = 1;
 //Difficulties
-int level1d = 4;
-int level2d = 4;
-int level3d = 4;
+int level1d = 4 * d;
+int level2d = 6 * d;
+int level3d = 7 * d;
 
 
 //scenes
@@ -98,7 +98,7 @@ Lvl2 lvl2 = new Lvl2();
 Lvl3 lvl3 = new Lvl3();
 Win2 win2 = new Win2();
 Lvl4 lvl4 = new Lvl4();
-Lvl5 lvl5 = new Lvl5();
+
 Win3 win3 = new Win3();
 CS cs = new CS();
 
@@ -107,12 +107,15 @@ CS cs = new CS();
 public void setup() {
 
   //1280x800
-  frameRate(24); //enemy physics tied to fps
   
+  surface.setResizable(true);
+
+  frameRate(24); //enemy physics tied to fps
+
 
   // Music calls
   minim = new Minim(this);
-startup = minim.loadFile("startup.mp3");
+  startup = minim.loadFile("startup.mp3");
   song = minim.loadFile("Music.mp3");
   saw = minim.loadFile("Chainsaw.mp3");
   death = minim.loadFile("Scream.mp3");
@@ -128,11 +131,11 @@ startup = minim.loadFile("startup.mp3");
   //song.play();
 
   // font calls
-  title = createFont("Bold.ttf", 32); //thick font
+  title = createFont("Bold.ttf", 12); //thick font
   subtitle = createFont("Roboto.ttf", 32); //regular font
 
   //Image Loads
-   joystick = loadImage("joystick.png");//menusprite not used
+  joystick = loadImage("joystick.png");//menusprite not used
   start = loadImage("Adventure.jpg");//menusprite not used
   gordon = loadImage("Gordon.png");//playersprite
   ferrar = loadImage("ferrar.png");//enemysprite
@@ -142,37 +145,39 @@ startup = minim.loadFile("startup.mp3");
   success = loadImage("successful.png");//success sprite
   high = loadImage("highscore.png");//success sprite
   attempt = loadImage("attempt.png");
-  
+
   // Misc controls
   noStroke(); //removes outlines
-  rectMode(CENTER);//Rect loads Centered
+  rectMode(CORNER);//Rect loads Centered
   textAlign(CENTER);//Text Loads Centered
   imageMode(CENTER);//Images Load Centered
-
-  
 }
 
 public void draw() { //Runs once in program
 
-noCursor();
- fill(255);
+  noCursor();
+  fill(255);
 
-    
+
   if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
     fill(0xff0040FA);
     textFont(title);
     textSize(300);
-    text("8-BIT",displayWidth/2,displayHeight/2.3f);
+    text("8-BIT", width/2, height/2.3f);
     textSize(50);
     fill(0);
-    text("beep boop beep",displayWidth/2,displayHeight/2);
-     image(joystick,displayWidth/2 ,displayHeight/1.2f ); 
+    text("beep boop beep", width/2, height/2);
+    image(joystick, width/2, height/1.2f ); 
     startup.play();
+    if (width < 1920) {
+      textSize(10);
+      text("Below Recommended Resolution (1920x1080)", width/2, height / 10);
+    }
     if (millis() - timer >= 5000) {
-    scene=1;
-    startup.close();
-    textAlign(CORNER);
+      scene=1;
+      startup.close();
+      textAlign(CORNER);
     }
   }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
@@ -180,17 +185,15 @@ noCursor();
     death2.pause();
     song.play();
     win.pause();
-   
   }
 
   if (key == 's' || key == 'S') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
     enemy.play();
-     death = minim.loadFile("Scream.mp3");
+    death = minim.loadFile("Scream.mp3");
     textAlign(CORNER);
     level1.play();
-  } else {
-    //leave blank, No else statement needed.
+
   }
   if (scene == 3) { //SCENE 3 (win)
     lvl2.drawAt(0, 0, 1, 1);
@@ -210,8 +213,8 @@ noCursor();
   if (scene == 8) { //SCENE 4 (lvl2)
     cs.drawAt(0, 0, 1, 1);
   }
-  
-  
+
+
   if (scene == 2) { //SCENE 2 (Lvl1)
 
     song.pause();
@@ -286,14 +289,14 @@ noCursor();
 
   //player bounds
 
-  if (X > 1280) {
-    X=1280;
+  if (X > width) {
+    X= width;
   }
   if (X < 0) {
     X=1;
   }
-  if (Y > 800) {
-    Y=800;
+  if (Y > height) {
+    Y=height;
   }
   if (Y < 0) {
     Y=0;
@@ -303,33 +306,30 @@ noCursor();
   //if (scene == 3) {
   // background(200);
   //}
-  
-  
+
+
   pushMatrix();
   textSize(20);
   fill(255);
 
-  text(frameRate,1200,100);
-  text("SCORE",1150,20);
-  text(score,1200,20);
-  
-  text("HIGHSCORE",20,20);
-  text(lastscore,150,20);
+  //text(frameRate,width/1.066,height/8);
+  text("SCORE", width/1.213f, height/40);
+  text(score, width/1.113f, height/40);
 
- 
+  text("HIGHSCORE", width/64, height/40);
+  text(lastscore, width/8.533f, height/40);
+
+
   popMatrix();
-  
+
   score = (5000 - time);
-
-
-
 }
 
 
 
-    
 
-  
+
+
 public void keyPressed() { //KeyMappings for Player
 
 
@@ -362,10 +362,8 @@ public void keyPressed() { //KeyMappings for Player
     time=0;
     death.close();
 
-  
-output = createWriter("score.txt"); 
-      
 
+    output = createWriter("score.txt");
   }
 }
 class CS { 
@@ -390,26 +388,26 @@ fill(0xff6DD302,80);
 
     textSize(612);
     fill(255, 255, 255, 80);
-    text("SCORE", 11, displayHeight/2+200);
+    text("SCORE", width/116.36f, height/1.33f);
 
     textSize(100);
 
     fill(255);
-    text(score, 600, displayHeight/1.1f);
+    text(score, width/2.13f, height/1.1f);
     
     
     textSize(30);
-    text("Menu (Enter)", 24, displayHeight/1.03f);
+    text("Menu (Enter)", width/24, height/1.03f);
 
 if (score < lastscore){
   textSize(100);
-  image(attempt,1100,600);
-  text("Final Score", 11, displayHeight/1.1f);
+  image(attempt,width/1.16f,height/1.33f);
+  text("Final Score", width/116.36f, height/1.1f);
 }
 if (score == lastscore){
   textSize(100);
-  text("High Score!", 11, displayHeight/1.1f);
-image(high,1100,600);
+  text("High Score!", width/116.36f, height/1.1f);
+image(high,width/1.16f,height/1.33f);
 }
 if (score > lastscore){
   image(violin,1100,700); 
@@ -441,14 +439,17 @@ saw.pause();
     textSize(300);
     pushMatrix();
     scale(4);
-    image(finish,320 ,0 );
+    image(finish, width/4 ,0 );
     popMatrix();
-    text("RUN",420,displayHeight/2);
-    textSize(22);
-    text("USE THE ARROW KEYS",420,displayHeight/1.9f);
-    text("Level 1",420,displayHeight/1.8f);
     
-    image(gordon, X/health*10, Y/health*10);
+    
+    text("RUN",width/2.6f,height/2);
+    textSize(22);
+    text("USE THE ARROW KEYS",width/2.6f,height/1.9f);
+    text("Level 1",width/2.6f,height/1.8f);
+    
+    image(gordon, X, Y);
+    
     image(ferrar,enemyX ,enemyY ); 
     
     
@@ -475,19 +476,19 @@ saw.pause();
       death.play();
       death2.play();
       background(0xffE00707);
-      image(violin,1100,700); 
+      image(violin,width/1.16f,height/1.14f); 
       fill(255);
-      textSize(132);
-      text("Gents, What a bloodbath,",11,displayHeight/2);
+      textSize(125);
+      text("Gents, What a bloodbath!",width/116.5f ,height/2);
       textSize(112);
       textFont(subtitle);
-      text("that just won't do!",24,displayHeight/1.8f);
+      text("that just won't do!",width/53.3f,height/1.8f);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
+      text("Dead",width/116.36f,height/1.33f);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Menu (Enter)",24,displayHeight/1.13f);
+      text("Exit (ESC)",width/53.3f,height/1.04f);
+      text("Menu (Enter)",width/53.3f,height/1.13f);
       level1.pause();
       fill(255);
       X=-10000;
@@ -516,7 +517,7 @@ saw.pause();
     
     //finish
     
-      if (X-30 > 1200){
+      if (X-30 > width/1.1f){
       scene=3;
        enemy.close();
 }
@@ -545,28 +546,28 @@ class Lvl2 {
       fill(255);
       
       textSize(132);
-      text("Gents, Well Done!",11,displayHeight/2);
+      text("Gents, Well Done!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 1 Complete!",24,displayHeight/9);
-      text("Ill be back in two shakes of a lamb's tail!",24,displayHeight/1.8f);
+      text("Level 1 Complete!",width/53.333f,height/9);
+      text("Ill be back in two shakes of a lamb's tail!",width/53.333f,height/1.8f);
       textSize(612);
       fill(255,255,255,30);
-      text("SUCCESS",11,displayHeight/2+200);
+      text("SUCCESS",width/116.36f,height/1.33f);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Next (+)",24,displayHeight/1.13f);
+      text("Exit (ESC)",width/53.333f,height/1.04f);
+      text("Next (+)",width/53.333f,height/1.13f);
       level1.pause();
       fill(255);
       pushMatrix();
-       image(success,1100,600); 
+       image(success,width/1.163f, height/1.33f); 
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
       enemy = minim.loadFile("startup.mp3");
       win.pause();
-      enemyX=1400; 
-    enemyY=800;
+      enemyX=width; 
+    enemyY=height;
     health=10;
     X=137;
     Y=356;
@@ -598,13 +599,13 @@ saw.pause();
     textSize(300);
     pushMatrix();
     scale(4);
-    image(finish,320 ,0 );
+    image(finish, width/4 ,0 );
     popMatrix();
     fill(0xff03FFF0);
-    text("ESCAPE",420,displayHeight/2);
+    text("ESCAPE",width/2.6f,height/2);
     textSize(22);
-    text("Mindblowing stuff - Mindblowing stuff - Mindblowing stuff - Mindblowing stuff",420,displayHeight/1.9f);
-    text("level 2",420,displayHeight/1.8f);
+    text("Mindblowing stuff - Mindblowing stuff - Mindblowing stuff - Mindblowing stuff",width/2.6f,height/1.9f);
+    text("level 2",width/2.6f,height/1.8f);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -628,27 +629,28 @@ saw.pause();
       
   level2.pause();
        
-      song.pause();
+            song.pause();
       death.play();
       death2.play();
       background(0xffE00707);
-      image(violin,1100,700); 
+      image(violin,width/1.16f,height/1.14f); 
       fill(255);
-      textSize(132);
-      text("Looks Like It Hurt Gents,",11,displayHeight/2);
+      textSize(125);
+      text("OH.. Trigger Warning!",width/116.5f ,height/2);
       textSize(112);
       textFont(subtitle);
-      text("Sorry, not Sorry!",24,displayHeight/1.8f);
+      text("Sorry Gents!",width/53.3f,height/1.8f);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
+      text("Dead",width/116.36f,height/1.33f);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Menu (Enter)",24,displayHeight/1.13f);
+      text("Exit (ESC)",width/53.3f,height/1.04f);
+      text("Menu (Enter)",width/53.3f,height/1.13f);
       level1.pause();
       fill(255);
       X=-10000;
       Y=-10000;
+     textFont(title);
          
       
     }
@@ -673,7 +675,7 @@ saw.pause();
     
     //finish
     
-      if (X-30 > 1200){
+      if (X-30 > width/1.1f){
       scene=5;
       enemy.close();
 }
@@ -715,12 +717,12 @@ saw.pause();
     textSize(300);
     pushMatrix();
     scale(4);
-    image(finish,320 ,0 );
+    image(finish, width/4 ,0 );
     popMatrix();
-    text("GENTS!",420,displayHeight/2);
+    text("GENTS!",width/2.6f,height/2);
     textSize(22);
-    text("TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING",420,displayHeight/1.9f);
-    text("level 3",420,displayHeight/1.8f);
+    text("TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING - TRIGGER WARNING",width/2.6f,height/1.9f);
+    text("level 3",width/2.6f,height/1.8f);
     image(gordon, X/health*10, Y/health*10);
     image(ferrar,enemyX ,enemyY ); 
     
@@ -744,28 +746,30 @@ saw.pause();
       
   level3.pause();
        
-      song.pause();
+      level2.pause();
+       
+            song.pause();
       death.play();
       death2.play();
       background(0xffE00707);
-      image(violin,1100,700); 
+      image(violin,width/1.16f,height/1.14f); 
       fill(255);
-      textSize(132);
-      text("Gents, What a bloodbath,",11,displayHeight/2);
+      textSize(125);
+      text("It Happens Gents!",width/116.5f ,height/2);
       textSize(112);
       textFont(subtitle);
-      text("that just won't do!",24,displayHeight/1.8f);
+      text("It will buff out!",width/53.3f,height/1.8f);
       textSize(612);
       fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
+      text("Dead",width/116.36f,height/1.33f);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Menu (Enter)",24,displayHeight/1.13f);
+      text("Exit (ESC)",width/53.3f,height/1.04f);
+      text("Menu (Enter)",width/53.3f,height/1.13f);
       level1.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-         
+     textFont(title);
       
     }
     
@@ -789,138 +793,9 @@ saw.pause();
     
     //finish
     
-      if (X-30 > 1200){
+      if (X-30 > width/1.1f){
       scene=7;
       enemy.close();
-}
-  if (Y < enemyY + 180 &&
-      Y > enemyY -180 &&
-      X < enemyX + 180 &&
-      X > enemyX -180) {
-
-      if (health > 1) {
-        health-=11; //subtracts health on contact
-      }
-      }
-
-
-  }
-}
-
-
-
-  
-class Lvl5 { 
-PImage player;
-
-PImage photo;
-
-
-  public void Lvl5() {
-  }
-
-  //void drawAt will draw the robot at the specified location
-  //xAnchor - horizotal anchor for where the robot is drawn
-  //yAnchor - vertical anchor for where the robot is drawn
- 
-  public void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-saw.pause();
-
-            
-    background(100);
-    textSize(300);
-    pushMatrix();
-    scale(4);
-    image(finish,320 ,0 );
-    popMatrix();
-    text("ESCAPE",420,displayHeight/2);
-    textSize(22);
-    text("Forgot to do your homework did you??",420,displayHeight/1.9f);
-    text("level 2",420,displayHeight/1.8f);
-    image(gordon, X/health*10, Y/health*10);
-    image(ferrar,enemyX ,enemyY ); 
-    
-    
-   text(deathcount,10,100);
-   
-
-  
-  
-
- 
-    
-    textSize(226);
-    fill(0xff710101);
-    
-    if (health > 5) {
-      time++;
-    }
-    if (health < 5) {
-      
-      
-  level2.pause();
-       
-      song.pause();
-      death.play();
-      death2.play();
-      background(0xffE00707);
-      image(violin,1100,700); 
-      fill(255);
-      textSize(132);
-      text("Gents, What a bloodbath,",11,displayHeight/2);
-      textSize(112);
-      textFont(subtitle);
-      text("that just won't do!",24,displayHeight/1.8f);
-      textSize(612);
-      fill(255,255,255,80);
-      text("Dead",11,displayHeight/2+200);
-      textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Menu (Enter)",24,displayHeight/1.13f);
-      level1.pause();
-      fill(255);
-      X=-10000;
-      Y=-10000;
-         
-      
-    }
-    
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=1;
-     enemy.play();
-    } 
-    if (X-30 > enemyX){
-      enemyX+=1;
-      
-    }
-    if (Y-30 < enemyY){
-      enemyY-=1;
-      
-    }
-    if (Y-20 > enemyY){
-      enemyY+=1;
-      
-    }
-    
-    //finish
-    if (X-30 < enemyX){
-      enemyX-=1;
-     enemy.play();
-    } 
-    if (X-30 > enemyX){
-      enemyX+=1;
-      
-    }
-    if (Y-30 < enemyY){
-      enemyY-=1;
-      
-    }
-    if (Y-20 > enemyY){
-      enemyY+=1;
-    }
-      if (X-30 > 1200){
-      scene=5;
 }
   if (Y < enemyY + 180 &&
       Y > enemyY -180 &&
@@ -956,7 +831,7 @@ class Start {
   rect(0, 0, 6000, 6000);
 
     
-    image(chainsaw, displayWidth/2, displayHeight/2);
+    image(chainsaw, width/2, height/2);
 
 
     //Text
@@ -967,11 +842,11 @@ class Start {
    textFont(title);
  
     textSize(20);
-      text("Controls (C)", displayWidth/2, displayHeight/1.2f);
-    text("Let's get to it Gents (S)", displayWidth/2, displayHeight/1.07f);
+      text("Controls (C)", width/2, height/1.2f);
+    text("Let's get to it Gents (S)", width/2, height/1.07f);
     textSize(20);
-    text("Feeling Triggered ? (ESC)", displayWidth/2, displayHeight/1.02f);
-    text("Revision 75", displayWidth -50 , displayHeight/1.02f);
+    text("Feeling Triggered ? (ESC)", width/2, height/1.02f);
+    text("Revision 100", width/1.049f, height/1.02f);
     
    
      
@@ -979,7 +854,7 @@ class Start {
     
     fill(255);
     textSize(250);
-    text("CHAINSAW", displayWidth/2, displayHeight/3.4f); 
+    text("CHAINSAW", width/2, height/3.4f); 
     textSize(20);
 
  
@@ -990,22 +865,16 @@ class Start {
    if (key == 'c' || key == 'C') { //Start Command
   rectMode(CENTER);//Rect loads Centered
    fill (50);
-    rect(displayWidth/2, displayHeight/2, 500, 200);
+    rect(width/2, height/2, 500, 200);
     fill(255);
     textSize(40);
-    text("Controls", displayWidth/3, displayHeight/2.2f); 
+    text("Controls", width/3, height/2.2f); 
     textSize(20);
-    text("Movement - Arrow Keys", displayWidth/3, displayHeight/2.0f); 
-    text("Next Level - +", displayWidth/3, displayHeight/1.7f); 
-    text("Reset - Enter", displayWidth/3, displayHeight/1.8f); 
-    text("Start - S", displayWidth/3, displayHeight/1.9f); 
+    text("Movement - Arrow Keys", width/3, height/2.0f); 
+    text("Next Level - +", width/3, height/1.7f); 
+    text("Reset - Enter", width/3, height/1.8f); 
+    text("Start - S", width/3, height/1.9f); 
     
-    
-   
-
- 
-
-  
    }
     
   }
@@ -1030,28 +899,28 @@ class Win2 {
       level2.pause();
       fill(255);
       textSize(132);
-      text("What a Time!",11,displayHeight/2);
+      text("What a Time!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 2 Complete!",24,displayHeight/9);
-      text("Hold on a Wee While Gents!",24,displayHeight/1.8f);
+      text("Level 2 Complete!",width/53.333f,height/9);
+      text("Hold on a Wee While Gents!",width/53.333f,height/1.8f);
       textSize(612);
       fill(255,255,255,40);
-      text("VICTORY",11,displayHeight/2+200);
+      text("VICTORY",width/116.36f,height/1.33f);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Next (+)",24,displayHeight/1.13f);
+      text("Exit (ESC)",width/53.333f,height/1.04f);
+      text("Next (+)",width/53.333f,height/1.13f);
       level1.pause();
       fill(255);
       pushMatrix();
-       image(success,1100,600); 
+       image(success,width/1.163f, height/1.33f); 
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
       enemy = minim.loadFile("startup.mp3");
       win.pause();
-      enemyX=1400; 
-    enemyY=800;
+      enemyX=width; 
+    enemyY=height/2;
     health=10;
     X=137;
     Y=356;
@@ -1080,47 +949,43 @@ class Win3 {
   rect(0, 0, width, height);
 
     
-      win.play();
+            win.play();
       level3.pause();
       fill(255);
       textSize(132);
-      text("Gents, This is Bad!",11,displayHeight/2);
+      text("What a Time!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
-      text("Level 3 Complete!",24,displayHeight/1.3f);
-      text("What a Waste!",24,displayHeight/1.8f);
+      text("Level 3 Complete!",width/53.333f,height/9);
+      text("Hold on a Wee While Gents!",width/53.333f,height/1.8f);
       textSize(612);
       fill(255,255,255,40);
-      text("WINNER",11,displayHeight/2+200);
+      text("VICTORY",width/116.36f,height/1.33f);
       textSize(50);
-      text("Exit (ESC)",24,displayHeight/1.04f);
-      text("Next (+)",24,displayHeight/1.13f);
+      text("Exit (ESC)",width/53.333f,height/1.04f);
+      text("Next (+)",width/53.333f,height/1.13f);
       level1.pause();
       fill(255);
       pushMatrix();
-       image(success,1100,600); 
+       image(success,width/1.163f, height/1.33f); 
       popMatrix();
       
       if (key == '+' || key == '=') { //Start Command
       
       enemy = minim.loadFile("startup.mp3");
       win.pause();
-      enemyX=1400; 
-    enemyY=800;
+      enemyX=width*12; 
+    enemyY=height;
     health=10;
     X=137;
     Y=356;
     scene=8; //moves to Scene 2 (level 1)
     
-    
-    
-    
-    
-    
+   
       }
   }
 }
-  public void settings() {  size(1280 , 800); }
+  public void settings() {  fullScreen(JAVA2D);  noSmooth(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Adventure" };
     if (passedArgs != null) {

@@ -59,12 +59,6 @@ class Start {
     text("Reset - Enter", width/3, height/1.8); 
     text("Start - S", width/3, height/1.9); 
     
-    
-   
-
- 
-
-  
    }
     
   }
