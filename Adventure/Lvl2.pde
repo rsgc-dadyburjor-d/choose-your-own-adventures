@@ -18,6 +18,7 @@ class Lvl2 {
       text("Gents, Well Done!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("Level 1 Complete!",width/53.333,height/9);
       text("Ill be back in two shakes of a lamb's tail!",width/53.333,height/1.8);
       textSize(612);

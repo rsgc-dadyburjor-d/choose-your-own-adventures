@@ -60,6 +60,7 @@ PImage photo;
       text("It Happens Gents!",width/116.5 ,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("It will buff out!",width/53.3,height/1.8);
       textSize(612);
       fill(255,255,255,80);

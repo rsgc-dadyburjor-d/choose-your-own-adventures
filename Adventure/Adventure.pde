@@ -63,9 +63,9 @@ int score; //current score
 int d = 1; //difficulty multiplier (default 1)
 
 //Difficulties
-int level1d = 7 * d; //level 1 (default 7)
-int level2d = 13 * d; //level 2 (default 13)
-int level3d = 15 * d; //level 3 (default 15)
+int level1d = 3 * d; //level 1 (default 7)
+int level2d = 3 * d; //level 2 (default 13)
+int level3d = 3 * d; //level 3 (default 15)
 
 //scenes
 Start menu = new Start(); //start menu
@@ -79,17 +79,15 @@ CS cs = new CS(); //score
 
 void setup() {
 
-  fullScreen(JAVA2D);//1280x800
+  fullScreen(P2D);//1280x800
   noSmooth(); //removes Anti-Aliasing
   surface.setResizable(true); //allows dynamic resize when out of fullscreen
-  frameRate(24); //enemy physics tied to fps
-
+  frameRate(60); //enemy physics tied to fps
 
   // Music calls
   minim = new Minim(this);
   startup = minim.loadFile("startup.mp3"); //splashscreen
   song = minim.loadFile("Music.mp3"); //menu music
-  //saw = minim.loadFile("Chainsaw.mp3"); 
   death = minim.loadFile("Scream.mp3"); //death scream
   death2 = minim.loadFile("death.mp3"); //death music
   enemy = minim.loadFile("startup.mp3"); //start level 1
@@ -101,8 +99,8 @@ void setup() {
   //winner = minim.loadFile("winner.mp3");
 
   // font calls
-  title = createFont("Bold.ttf", 12); //thick font
-  subtitle = createFont("Roboto.ttf", 32); //regular font
+  title = createFont("Bold.ttf", 202); //thick font
+  subtitle = createFont("Roboto.ttf", 200); //regular font
 
   //Image Loads
   joystick = loadImage("joystick.png");//menusprite not used
@@ -155,8 +153,22 @@ void draw() { //Runs once in program
     song.play();
     win.pause();
   }
-
-  if (key == 's' || key == 'S') { //Start Command
+    if (keyPressed) {
+  if (key == 'w' || key == 'W') { //Start Command
+    Y+=-30;
+    
+  }
+  if (key == 'a' || key == 'A') {
+    X+=-30;
+  }
+  if (key == 's' || key == 'S') {
+    Y+=30;
+  }
+  if (key == 'd' || key == 'D') {
+    X+=30;
+  }
+    }
+  if (key == 'i' || key == 'I') { //Start Command
     scene=2; //moves to Scene 2 (level 1)
     enemy.play();
     death = minim.loadFile("Scream.mp3");
@@ -187,11 +199,7 @@ void draw() { //Runs once in program
     song.pause();
     rectMode(CORNER); //rect draws from corner
     lvl1.drawAt(0, 0, 1, 1);//lvl1 draw
-    
-    //Enemy health/ Damage script
 
-   
-    
     //Player Health
     if (Y < enemyY + 180 &&
       Y > enemyY -180 &&
@@ -219,28 +227,22 @@ void draw() { //Runs once in program
     Y=0;
   }
 
-//Gui Code
+  //Gui Code
   pushMatrix();
   textSize(20);
   fill(255);
-
-  //text(frameRate,width/1.066,height/8);
+  text(frameRate,width/1.066,height/8);
   text("SCORE", width/1.213, height/40);
   text(score, width/1.113, height/40);
-
   text("HIGHSCORE", width/64, height/40);
   text(lastscore, width/8.533, height/40);
-
-
   popMatrix();
 
-//scoring
+  //scoring
   score = (5000 - time); // score reduces as time goes on
 }
 
 void keyPressed() { //KeyMappings for Player
-
-
 
   if (keyCode == LEFT) { //Move left
     X+=-30;
@@ -269,8 +271,5 @@ void keyPressed() { //KeyMappings for Player
     Y=356;
     time=0;
     death.close();
-
-
-
   }
 }

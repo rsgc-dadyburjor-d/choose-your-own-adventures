@@ -41,6 +41,7 @@ PImage photo;
       text("Gents, What a bloodbath!",width/116.5 ,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("that just won't do!",width/53.3,height/1.8);
       textSize(612);
       fill(255,255,255,80);
