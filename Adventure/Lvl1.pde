@@ -20,7 +20,7 @@ PImage photo;
     popMatrix();
     text("RUN",width/2.6,height/2);
     textSize(22);
-    text("USE THE ARROW KEYS",width/2.6,height/1.9);
+    text("USE W A S D",width/2.6,height/1.9);
     text("Level 1",width/2.6,height/1.8);
     image(gordon, X, Y);
     image(ferrar,enemyX ,enemyY ); 

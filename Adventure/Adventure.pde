@@ -80,7 +80,7 @@ CS cs = new CS(); //score
 void setup() {
 
   fullScreen(P2D);//1280x800
-  noSmooth(); //removes Anti-Aliasing
+  smooth(0);
   surface.setResizable(true); //allows dynamic resize when out of fullscreen
   frameRate(60); //enemy physics tied to fps
 
