@@ -22,7 +22,6 @@ import java.io.IOException;
 public class Adventure extends PApplet {
 
 
-PrintWriter output;
 
 //audio Libraries
 
@@ -36,13 +35,13 @@ PrintWriter output;
 Minim minim;
 AudioPlayer startup; //level pass
 AudioPlayer song; //menu music
-AudioPlayer saw; //WIP
+AudioPlayer saw; 
 AudioPlayer death; //death scream
 AudioPlayer death2; //death music
 AudioPlayer enemy; //enemy movement
-AudioPlayer level1; //enemy movement
-AudioPlayer level2; //enemy movement
-AudioPlayer level3; //enemy movement
+AudioPlayer level1; //Level1 music
+AudioPlayer level2; //level2 music
+AudioPlayer level3; //level3 music
 AudioPlayer win; //level pass
 AudioPlayer csm; //level pass
 AudioPlayer winner; //level pass
@@ -52,18 +51,18 @@ PFont subtitle; //smaller thinner text
 PFont title; //bolded text
 
 //Images
-PImage chainsaw;
-PImage cursor;
-PImage start;
-PImage player;
-PImage gordon;
-PImage ferrar;
-PImage violin;
-PImage finish;
-PImage success;
-PImage joystick;
-PImage high;
-PImage attempt;
+PImage chainsaw; //Intro Screen
+PImage cursor; //mouse
+PImage start; //unused start
+PImage gordon; //main char
+PImage ferrar; //enemy
+PImage violin; //death screen
+PImage finish; //finish line
+PImage success; //level pass
+PImage joystick; //8bit splash
+PImage high; //high score
+PImage attempt; //score
+
 //variables
 int timer;
 int scene = 0; //Scene position
@@ -80,59 +79,52 @@ int deathcount = 0; //number of deaths (WIP)
 int bg = 0; //number of deaths (WIP)
 int r = 0;
 int time=0;
-int highscore=0;
+int highscore=0; //best score
 int lastscore=0;
-int score;
-int mode;
-int d = 1;
-//Difficulties
-int level1d = 4 * d;
-int level2d = 6 * d;
-int level3d = 7 * d;
+int score; //current score
+//int mode;
+int d = 1; //difficulty multiplier (default 1)
 
+//Difficulties
+int level1d = 3 * d; //level 1 (default 7)
+int level2d = 3 * d; //level 2 (default 13)
+int level3d = 3 * d; //level 3 (default 15)
 
 //scenes
 Start menu = new Start(); //start menu
 Lvl1 lvl1 = new Lvl1(); //lvl1
-Lvl2 lvl2 = new Lvl2();
-Lvl3 lvl3 = new Lvl3();
-Win2 win2 = new Win2();
-Lvl4 lvl4 = new Lvl4();
-
-Win3 win3 = new Win3();
-CS cs = new CS();
-
-
+Lvl2 lvl2 = new Lvl2();//win1
+Lvl3 lvl3 = new Lvl3();//lvl2
+Win2 win2 = new Win2();//win2
+Lvl4 lvl4 = new Lvl4();//lvl3
+Win3 win3 = new Win3();//win3
+CS cs = new CS(); //score
 
 public void setup() {
-
   //1280x800
+
   
-  surface.setResizable(true);
-
-  frameRate(24); //enemy physics tied to fps
-
+  surface.setResizable(true); //allows dynamic resize when out of fullscreen
+  frameRate(60); //enemy physics tied to fps
+  noStroke();
 
   // Music calls
   minim = new Minim(this);
-  startup = minim.loadFile("startup.mp3");
-  song = minim.loadFile("Music.mp3");
-  saw = minim.loadFile("Chainsaw.mp3");
-  death = minim.loadFile("Scream.mp3");
-  death2 = minim.loadFile("death.mp3");
-  enemy = minim.loadFile("startup.mp3");
-  level1 = minim.loadFile("Level1.mp3");
-  level2 = minim.loadFile("Level2.mp3");
-  level3 = minim.loadFile("Level3.mp3");
-  win = minim.loadFile("Win.mp3");
-  csm = minim.loadFile("cs.mp3");
-  winner = minim.loadFile("winner.mp3");
-  //plays music 
-  //song.play();
+  startup = minim.loadFile("startup.mp3"); //splashscreen
+  song = minim.loadFile("Music.mp3"); //menu music
+  death = minim.loadFile("Scream.mp3"); //death scream
+  death2 = minim.loadFile("death.mp3"); //death music
+  enemy = minim.loadFile("startup.mp3"); //start level 1
+  level1 = minim.loadFile("Level1.mp3"); //level 1 music
+  level2 = minim.loadFile("Level2.mp3"); //level 2 music
+  level3 = minim.loadFile("Level3.mp3"); //level 3 music
+  win = minim.loadFile("Win.mp3"); //level pass
+  csm = minim.loadFile("cs.mp3"); //score page
+  //winner = minim.loadFile("winner.mp3");
 
   // font calls
-  title = createFont("Bold.ttf", 12); //thick font
-  subtitle = createFont("Roboto.ttf", 32); //regular font
+  title = createFont("Bold.ttf", 202); //thick font
+  subtitle = createFont("Roboto.ttf", 200); //regular font
 
   //Image Loads
   joystick = loadImage("joystick.png");//menusprite not used
@@ -158,7 +150,6 @@ public void draw() { //Runs once in program
   noCursor();
   fill(255);
 
-
   if (scene == 0) { //loads SCENE 0 (splashscreen) loads at start
     background(255);
     fill(0xff0040FA);
@@ -181,20 +172,36 @@ public void draw() { //Runs once in program
     }
   }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
+
+    if (key == 'i' || key == 'I') { //Start Command
+      scene=2; //moves to Scene 2 (level 1)
+      enemy.play();
+      death = minim.loadFile("Scream.mp3");
+      textAlign(CORNER);
+      level1.play();
+    }
     menu.drawAt(0, 0, 1, 1);
     death2.pause();
     song.play();
     win.pause();
   }
-
-  if (key == 's' || key == 'S') { //Start Command
-    scene=2; //moves to Scene 2 (level 1)
-    enemy.play();
-    death = minim.loadFile("Scream.mp3");
-    textAlign(CORNER);
-    level1.play();
-
+  if (keyPressed) {
+    
+    if (key == 'w' || key == 'W') {//forward
+      Y+=-30;
+    }
+    if (key == 'a' || key == 'A') {//left
+      X+=-30;
+    }
+    if (key == 's' || key == 'S') {//back
+      Y+=30;
+    }
+    if (key == 'd' || key == 'D') {//right
+      X+=30;
+    }
   }
+
+
   if (scene == 3) { //SCENE 3 (win)
     lvl2.drawAt(0, 0, 1, 1);
   }
@@ -216,56 +223,9 @@ public void draw() { //Runs once in program
 
 
   if (scene == 2) { //SCENE 2 (Lvl1)
-
     song.pause();
-
     rectMode(CORNER); //rect draws from corner
     lvl1.drawAt(0, 0, 1, 1);//lvl1 draw
-
-
-
-    //review bullet code 
-    //Not currently Working
-
-    //if (mousePressed) { //on mouse press fire bullet
-
-    //  rect(bulletX, bulletY, 5, 5);
-
-
-
-    //  bulletX+=10;
-
-    //  if (bulletX > 800) {
-    //    if (mousePressed) {
-    //      bulletX = X/10;
-    //      bulletY = Y/10;
-    //      rect(bulletX, bulletY, 5, 5);
-    //    }
-    //  }
-    //}
-
-
-    //Enemy health/ Damage script
-
-    if (Y < enemyY + 90 &&
-      Y > enemyY &&
-      X < enemyX + 90 &&
-      X > enemyX) {
-
-      if (hp > 1) {
-        hp-=.01f;
-      }
-    }
-
-    //unused code (ignore)
-    //if (Y < enemyY + 90 &&
-    //Y > enemyY &&
-    //X < enemyX +90 &&
-    //X > enemyX){
-
-    //  if (hp > 1) {
-    //  hp-=.01;
-    //}
 
     //Player Health
     if (Y < enemyY + 180 &&
@@ -276,22 +236,12 @@ public void draw() { //Runs once in program
       if (health > 1) {
         health-=11; //subtracts health on contact
       }
-
-
-
-
-      //if (Y/10 < enemyY+90){
-      //if (X/10 > enemyX+90){
-      //fill(20);
-      //rect(200,200,200,200);
     }
   }
 
-  //player bounds
+  //player bounds scale to display
 
-  if (X > width) {
-    X= width;
-  }
+
   if (X < 0) {
     X=1;
   }
@@ -302,51 +252,24 @@ public void draw() { //Runs once in program
     Y=0;
   }
 
-  //scene 3 not currently used
-  //if (scene == 3) {
-  // background(200);
-  //}
 
-
+  //Gui Code
   pushMatrix();
   textSize(20);
   fill(255);
-
-  //text(frameRate,width/1.066,height/8);
-  text("SCORE", width/1.213f, height/40);
-  text(score, width/1.113f, height/40);
-
+  text(frameRate, width/1.066f, height/8);
+  text("SCORE", width/1.153f, height/40);
+  text(score, width/1.093f, height/40);
   text("HIGHSCORE", width/64, height/40);
   text(lastscore, width/8.533f, height/40);
-
-
   popMatrix();
 
-  score = (5000 - time);
+  //scoring
+  score = (5000 - time); // score reduces as time goes on
 }
-
-
-
-
-
 
 public void keyPressed() { //KeyMappings for Player
 
-
-
-  if (keyCode == LEFT) { //Move left
-    X+=-30;
-  }
-  if (keyCode == RIGHT) { //Move right
-    X+=30;
-  }
-
-  if (keyCode == UP) { //move up
-    Y+=-30;
-  }
-  if (keyCode == DOWN) { //move down
-    Y+=30;
-  }
   if (keyCode == ENTER) { //after death resets game
     //all variables are reset
     song.play();
@@ -361,9 +284,6 @@ public void keyPressed() { //KeyMappings for Player
     Y=356;
     time=0;
     death.close();
-
-
-    output = createWriter("score.txt");
   }
 }
 class CS { 
@@ -378,24 +298,17 @@ class CS {
 
 
 fill(0xff6DD302,80);
-    rect(0, 0, 6000, 6000);
-
+    rect(0, 0, 6000, 6000); //bg
     csm.play();
     win.pause();
     level2.pause();
     fill(255);
-
-
     textSize(612);
     fill(255, 255, 255, 80);
     text("SCORE", width/116.36f, height/1.33f);
-
     textSize(100);
-
     fill(255);
     text(score, width/2.13f, height/1.1f);
-    
-    
     textSize(30);
     text("Menu (Enter)", width/24, height/1.03f);
 
@@ -412,17 +325,12 @@ image(high,width/1.16f,height/1.33f);
 if (score > lastscore){
   image(violin,1100,700); 
   lastscore = score;
-}
-
-
-   
+}   
       }
   }
 class Lvl1 { 
 PImage player;
-
 PImage photo;
-
 
   public void Lvl1() {
   }
@@ -432,46 +340,27 @@ PImage photo;
   //yAnchor - vertical anchor for where the robot is drawn
  
   public void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-saw.pause();
 
-            
+
     background(30);
     textSize(300);
     pushMatrix();
     scale(4);
     image(finish, width/4 ,0 );
     popMatrix();
-    
-    
     text("RUN",width/2.6f,height/2);
     textSize(22);
-    text("USE THE ARROW KEYS",width/2.6f,height/1.9f);
+    text("USE W A S D",width/2.6f,height/1.9f);
     text("Level 1",width/2.6f,height/1.8f);
-    
     image(gordon, X, Y);
-    
     image(ferrar,enemyX ,enemyY ); 
-    
-    
-   
-   
-
-  
-  
-
- 
-    
     textSize(226);
     fill(0xff710101);
+    
     if (health > 5) {
       time++;
     }
-    
     if (health < 5) { //death screen
-      
-      
-  
-       
       song.pause();
       death.play();
       death2.play();
@@ -482,6 +371,7 @@ saw.pause();
       text("Gents, What a bloodbath!",width/116.5f ,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("that just won't do!",width/53.3f,height/1.8f);
       textSize(612);
       fill(255,255,255,80);
@@ -493,28 +383,25 @@ saw.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-     textFont(title);
-      
+     textFont(title); 
     }
-    
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level1d;
+       //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level1d;
+      enemyX+=level1d + scene *2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level1d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level1d;
-      
+      enemyY+=level1d + scene*2;
     }
-    
     //finish
     
       if (X-30 > width/1.1f){
@@ -538,7 +425,7 @@ class Lvl2 {
   //yAnchor - vertical anchor for where the robot is drawn
  
   public void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-   fill(0xff090093, 60); // semi-transparent white
+   fill(0xff090093, 60); // semi-transparent bg
   rect(0, 0, 6000, 6000);
   
       win.play();
@@ -549,6 +436,7 @@ class Lvl2 {
       text("Gents, Well Done!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("Level 1 Complete!",width/53.333f,height/9);
       text("Ill be back in two shakes of a lamb's tail!",width/53.333f,height/1.8f);
       textSize(612);
@@ -592,7 +480,7 @@ PImage photo;
   //yAnchor - vertical anchor for where the robot is drawn
  
   public void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-saw.pause();
+
 
             
     background(30);
@@ -639,6 +527,7 @@ saw.pause();
       text("OH.. Trigger Warning!",width/116.5f ,height/2);
       textSize(112);
       textFont(subtitle);
+    textSize(32);
       text("Sorry Gents!",width/53.3f,height/1.8f);
       textSize(612);
       fill(255,255,255,80);
@@ -655,23 +544,24 @@ saw.pause();
       
     }
     
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level2d;
+       //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level2d;
+      enemyX+=level1d + scene*2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level2d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level2d;
-      
+      enemyY+=level1d + scene*2;
     }
+    
     
     //finish
     
@@ -710,7 +600,7 @@ PImage photo;
   //yAnchor - vertical anchor for where the robot is drawn
  
   public void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-saw.pause();
+
 
             
     background(200);
@@ -758,6 +648,7 @@ saw.pause();
       text("It Happens Gents!",width/116.5f ,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("It will buff out!",width/53.3f,height/1.8f);
       textSize(612);
       fill(255,255,255,80);
@@ -773,23 +664,24 @@ saw.pause();
       
     }
     
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level3d;
+        //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level3d;
+      enemyX+=level1d + scene*2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level3d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level3d;
-      
+      enemyY+=level1d + scene*2;
     }
+    
     
     //finish
     
@@ -843,10 +735,10 @@ class Start {
  
     textSize(20);
       text("Controls (C)", width/2, height/1.2f);
-    text("Let's get to it Gents (S)", width/2, height/1.07f);
+    text("Let's get to it Gents (I)", width/2, height/1.07f);
     textSize(20);
     text("Feeling Triggered ? (ESC)", width/2, height/1.02f);
-    text("Revision 100", width/1.049f, height/1.02f);
+    text("Revision 106", width/1.049f, height/1.02f);
     
    
      
@@ -890,11 +782,7 @@ class Win2 {
   public void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
     fill(0xff0040FA, 60); // semi-transparent white
-  rect(0, 0, 6000, 6000);
-
-    fill(0xff0040FA, 30); // semi-transparent white
   rect(0, 0, width, height);
-
       win.play();
       level2.pause();
       fill(255);
@@ -902,6 +790,7 @@ class Win2 {
       text("What a Time!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("Level 2 Complete!",width/53.333f,height/9);
       text("Hold on a Wee While Gents!",width/53.333f,height/1.8f);
       textSize(612);
@@ -956,6 +845,7 @@ class Win3 {
       text("What a Time!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("Level 3 Complete!",width/53.333f,height/9);
       text("Hold on a Wee While Gents!",width/53.333f,height/1.8f);
       textSize(612);
@@ -985,7 +875,7 @@ class Win3 {
       }
   }
 }
-  public void settings() {  fullScreen(JAVA2D);  noSmooth(); }
+  public void settings() {  fullScreen(P2D);  smooth(0); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Adventure" };
     if (passedArgs != null) {

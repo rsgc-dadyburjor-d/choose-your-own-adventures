@@ -1,8 +1,6 @@
 class Lvl1 { 
 PImage player;
-
 PImage photo;
-
 
   void Lvl1() {
   }
@@ -12,46 +10,27 @@ PImage photo;
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-saw.pause();
 
-            
+
     background(30);
     textSize(300);
     pushMatrix();
     scale(4);
     image(finish, width/4 ,0 );
     popMatrix();
-    
-    
     text("RUN",width/2.6,height/2);
     textSize(22);
-    text("USE THE ARROW KEYS",width/2.6,height/1.9);
+    text("USE W A S D",width/2.6,height/1.9);
     text("Level 1",width/2.6,height/1.8);
-    
     image(gordon, X, Y);
-    
     image(ferrar,enemyX ,enemyY ); 
-    
-    
-   
-   
-
-  
-  
-
- 
-    
     textSize(226);
     fill(#710101);
+    
     if (health > 5) {
       time++;
     }
-    
     if (health < 5) { //death screen
-      
-      
-  
-       
       song.pause();
       death.play();
       death2.play();
@@ -62,6 +41,7 @@ saw.pause();
       text("Gents, What a bloodbath!",width/116.5 ,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("that just won't do!",width/53.3,height/1.8);
       textSize(612);
       fill(255,255,255,80);
@@ -73,28 +53,25 @@ saw.pause();
       fill(255);
       X=-10000;
       Y=-10000;
-     textFont(title);
-      
+     textFont(title); 
     }
-    
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level1d;
+       //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level1d;
+      enemyX+=level1d + scene *2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level1d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level1d;
-      
+      enemyY+=level1d + scene*2;
     }
-    
     //finish
     
       if (X-30 > width/1.1){

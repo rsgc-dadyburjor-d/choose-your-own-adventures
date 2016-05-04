@@ -12,7 +12,7 @@ PImage photo;
   //yAnchor - vertical anchor for where the robot is drawn
  
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
-saw.pause();
+
 
             
     background(200);
@@ -60,6 +60,7 @@ saw.pause();
       text("It Happens Gents!",width/116.5 ,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("It will buff out!",width/53.3,height/1.8);
       textSize(612);
       fill(255,255,255,80);
@@ -75,23 +76,24 @@ saw.pause();
       
     }
     
-    //rect(enemyX,enemyY,hp,hp);
-    if (X-30 < enemyX){
-      enemyX-=level3d;
+        //enemy AI
+  
+   if (X-30 < enemyX){
+      enemyX-=level1d + scene*2;
      enemy.play();
     } 
     if (X-30 > enemyX){
-      enemyX+=level3d;
+      enemyX+=level1d + scene*2;
       
     }
     if (Y-30 < enemyY){
-      enemyY-=level3d;
+      enemyY-=level1d + scene*2;
       
     }
     if (Y-20 > enemyY){
-      enemyY+=level3d;
-      
+      enemyY+=level1d + scene*2;
     }
+    
     
     //finish
     

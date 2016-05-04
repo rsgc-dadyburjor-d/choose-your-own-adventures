@@ -9,11 +9,7 @@ class Win2 {
   void drawAt(int xAnchor, int yAnchor, float horizontalScale, float verticalScale) {
 
     fill(#0040FA, 60); // semi-transparent white
-  rect(0, 0, 6000, 6000);
-
-    fill(#0040FA, 30); // semi-transparent white
   rect(0, 0, width, height);
-
       win.play();
       level2.pause();
       fill(255);
@@ -21,6 +17,7 @@ class Win2 {
       text("What a Time!",width/116,height/2);
       textSize(112);
       textFont(subtitle);
+      textSize(32);
       text("Level 2 Complete!",width/53.333,height/9);
       text("Hold on a Wee While Gents!",width/53.333,height/1.8);
       textSize(612);

@@ -78,7 +78,7 @@ Win3 win3 = new Win3();//win3
 CS cs = new CS(); //score
 
 void setup() {
-fullScreen(P2D);//1280x800
+  fullScreen(P2D);//1280x800
 
   smooth(0);
   surface.setResizable(true); //allows dynamic resize when out of fullscreen
@@ -149,33 +149,36 @@ void draw() { //Runs once in program
     }
   }
   if (scene == 1) { //loads SCENE 1 (MENU) loads at start
+
+    if (key == 'i' || key == 'I') { //Start Command
+      scene=2; //moves to Scene 2 (level 1)
+      enemy.play();
+      death = minim.loadFile("Scream.mp3");
+      textAlign(CORNER);
+      level1.play();
+    }
     menu.drawAt(0, 0, 1, 1);
     death2.pause();
     song.play();
     win.pause();
   }
-    if (keyPressed) {
-  if (key == 'w' || key == 'W') { //Start Command
-    Y+=-30;
+  if (keyPressed) {
     
-  }
-  if (key == 'a' || key == 'A') {
-    X+=-30;
-  }
-  if (key == 's' || key == 'S') {
-    Y+=30;
-  }
-  if (key == 'd' || key == 'D') {
-    X+=30;
-  }
+    if (key == 'w' || key == 'W') {//forward
+      Y+=-30;
     }
-  if (key == 'i' || key == 'I') { //Start Command
-    scene=2; //moves to Scene 2 (level 1)
-    enemy.play();
-    death = minim.loadFile("Scream.mp3");
-    textAlign(CORNER);
-    level1.play();
+    if (key == 'a' || key == 'A') {//left
+      X+=-30;
+    }
+    if (key == 's' || key == 'S') {//back
+      Y+=30;
+    }
+    if (key == 'd' || key == 'D') {//right
+      X+=30;
+    }
   }
+
+
   if (scene == 3) { //SCENE 3 (win)
     lvl2.drawAt(0, 0, 1, 1);
   }
@@ -215,9 +218,7 @@ void draw() { //Runs once in program
 
   //player bounds scale to display
 
-  if (X > width) {
-    X= width;
-  }
+
   if (X < 0) {
     X=1;
   }
@@ -233,7 +234,7 @@ void draw() { //Runs once in program
   pushMatrix();
   textSize(20);
   fill(255);
-  text(frameRate,width/1.066,height/8);
+  text(frameRate, width/1.066, height/8);
   text("SCORE", width/1.153, height/40);
   text(score, width/1.093, height/40);
   text("HIGHSCORE", width/64, height/40);

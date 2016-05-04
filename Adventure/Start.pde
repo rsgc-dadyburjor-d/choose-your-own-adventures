@@ -26,11 +26,11 @@ class Start {
    textFont(title);
  
     textSize(20);
-      text("Controls (C)", width/2, height/1.2);
+      text("Controls / Credits (C)", width/2, height/1.2);
     text("Let's get to it Gents (I)", width/2, height/1.07);
     textSize(20);
     text("Feeling Triggered ? (ESC)", width/2, height/1.02);
-    text("Revision 106", width/1.049, height/1.02);
+    text("Revision 108", width/1.049, height/1.02);
     
    
      
@@ -48,16 +48,23 @@ class Start {
     }
    if (key == 'c' || key == 'C') { //Start Command
   rectMode(CENTER);//Rect loads Centered
-   fill (50);
-    rect(width/2, height/2, 500, 200);
+   fill (50,180);
+    rect(width/2, height/2, 5000, 200);
     fill(255);
     textSize(40);
-    text("Controls", width/3, height/2.2); 
+    text("Controls", width/5, height/2.2); 
+    text("Credits", width/1.5, height/2.2); 
     textSize(20);
-    text("Movement - Arrow Keys", width/3, height/2.0); 
-    text("Next Level - +", width/3, height/1.7); 
-    text("Reset - Enter", width/3, height/1.8); 
-    text("Start - S", width/3, height/1.9); 
+    text("Movement - WASD", width/5, height/2.0); 
+    text("Next Level - +", width/5, height/1.7); 
+    text("Reset - Enter", width/5, height/1.8); 
+    text("Start - I", width/5, height/1.9); 
+    text("EXIT MENU - Enter", width/2 - 80, height/1.9); 
+    
+    text("Darius Dadyburjor", width/1.5, height/2); 
+    text("Processing.org", width/1.5, height/1.7); 
+    text("https://soundcloud.com/8bitsongs", width/1.5, height/1.8); 
+    text("Reddit r/processing", width/1.5, height/1.9); 
     
    }
     
